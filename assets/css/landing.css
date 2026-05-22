@@ -279,12 +279,33 @@
 
         width: 80%;
 
+        /*
+            FULL SCREEN MOBILE LAYOUT
+        */
+        min-height: 100vh;
+
+        display: flex;
+
+        flex-direction: column;
+
+        justify-content: space-between;
+
         padding-top: 20px;
-        padding-bottom: 0px;
+        padding-bottom: 20px;
 
     }
 
     /* =========================
+       HERO SECTION
+    ========================= */
+
+    .hero-section {
+
+        margin-bottom: 10px;
+
+    }
+
+        /* =========================
        SERVER TITLE
     ========================= */
 
@@ -295,7 +316,7 @@
         */
         font-size: clamp(2.5rem, 12vw, 4rem);
 
-        margin-top: 30px;
+        margin-top: 60px;
 
         margin-bottom: 20px;
 
@@ -316,13 +337,23 @@
     }
 
     /* =========================
+       STORE SECTION
+    ========================= */
+
+    .store-section {
+
+        margin-bottom: 10px;
+
+    }
+
+        /* =========================
        STORE GRID
     ========================= */
 
     .store-grid {
 
         /*
-            1 COLUMN MOBILE LAYOUT
+            2x2 MOBILE LAYOUT
         */
         grid-template-columns: repeat(2, 1fr);
 
@@ -352,7 +383,7 @@
 
     }
 
-    /* =========================
+        /* =========================
        BUTTONS
     ========================= */
 
@@ -377,9 +408,15 @@
 
     .support-section {
 
-        gap: 15px;
+        gap: 10px;
+
+        padding-bottom: 5px;
 
     }
+
+    /* =========================
+       SUPPORT TEXT
+    ========================= */
 
     .support-text {
 
@@ -391,14 +428,73 @@
 
     }
 
+    /* =========================
+       DISCORD LINK
+    ========================= */
+
     .discord-link {
 
         font-size: 1rem;
 
     }
 
+        /* =========================
+       BUTTONS
+    ========================= */
+
+    .store-button {
+
+        /*
+            MOBILE BUTTON SIZE
+        */
+        font-size: 1.5rem;
+
+        padding: 10px 45px;
+
+        letter-spacing: 2px;
+
+        border-radius: 10px;
+
+    }
+
     /* =========================
-    MOBILE BORDER
+       SUPPORT SECTION
+    ========================= */
+
+    .support-section {
+
+        gap: 10px;
+
+        padding-bottom: 5px;
+
+    }
+
+    /* =========================
+       SUPPORT TEXT
+    ========================= */
+
+    .support-text {
+
+        font-size: 0.9rem;
+
+        margin-bottom: -5px;
+
+        line-height: 1.5;
+
+    }
+
+    /* =========================
+       DISCORD LINK
+    ========================= */
+
+    .discord-link {
+
+        font-size: 1rem;
+
+    }
+
+        /* =========================
+       MOBILE BORDER
     ========================= */
 
     body::after {
@@ -416,26 +512,4 @@
 
     }
 
-    /* =========================
-    MOBILE SUPPORT POSITION
-    ========================= */
-
-    .support-section {
-
-        position: fixed;
-
-        bottom: 0    ;
-
-        left: 50%;
-
-        transform: translateX(-50%);
-
-        width: 90%;
-
-        text-align: center;
-
-        z-index: 100;
-
-        padding-bottom: 30px;
-    }
 }
