@@ -222,6 +222,15 @@
 
 }
 
+.discord-link:hover {
+
+    color: var(--secondary-color);
+
+    text-shadow:
+    0 0 5px rgba(192, 132, 252, 0.8);
+
+}
+
 /* =========================
    MINECRAFT GLOW TEXT
 ========================= */
