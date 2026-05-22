@@ -1,0 +1,289 @@
+/* =========================
+   MINECRAFT FONT
+========================= */
+
+@font-face {
+
+    font-family: 'Minecraft';
+
+    src: url('../fonts/Minecraft.ttf') format('truetype');
+
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+/* =========================
+   GLOBAL RESET
+========================= */
+
+* {
+
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+
+}
+
+/* =========================
+   PREVENT OVERFLOW
+========================= */
+
+html,
+body {
+
+    overflow-x: hidden;
+
+    scroll-behavior: smooth;
+
+}
+
+/* =========================
+   GLOBAL VARIABLES
+   CHANGE COLORS HERE
+========================= */
+
+:root {
+
+    /* =========================
+       MAIN BACKGROUND COLORS
+    ========================= */
+
+    /*
+        MAIN VOID BACKGROUND
+        CHANGE THIS FOR OVERALL SITE COLOR
+    */
+    --bg-color: #06010d;
+
+    /*
+        SECONDARY BACKGROUND GLOW
+        USED IN GRADIENTS
+    */
+    --bg-secondary: #140320;
+
+    /*
+        CARD BACKGROUND
+        LOWER OPACITY = MORE GLASS EFFECT
+    */
+    --card-color: rgba(22, 10, 40, 0.82);
+
+    /* =========================
+       PRIMARY COLORS
+    ========================= */
+
+    /*
+        MAIN PURPLE
+    */
+    --primary-color: #9b5cff;
+
+    /*
+        BRIGHT GLOW PURPLE
+    */
+    --secondary-color: #c084fc;
+
+    /*
+        COSMIC BLUE ACCENT
+    */
+    --accent-blue: #60a5fa;
+
+    /*
+        MAGIC PINK ACCENT
+    */
+    --accent-pink: #f472b6;
+
+    /*
+        TEXT COLOR
+    */
+    --text-color: #ffffff;
+
+    /*
+        BUTTON HOVER COLOR
+    */
+    --hover-color: #7c3aed;
+
+    /*
+        MAX WEBSITE WIDTH
+    */
+    --max-width: 1200px;
+
+}
+
+/* =========================
+   BODY STYLING
+========================= */
+
+body {
+
+    /*
+        CHANGE GLOBAL FONT HERE
+    */
+    font-family: 'Minecraft', Arial, sans-serif;
+
+    /*
+        GALACTIC BACKGROUND
+        CHANGE GRADIENT COLORS HERE
+    */
+    background:
+    radial-gradient(circle at top, #1b0b2f 0%, transparent 40%),
+    radial-gradient(circle at bottom right, #120224 0%, transparent 30%),
+    linear-gradient(to bottom, var(--bg-secondary), var(--bg-color));
+
+    color: var(--text-color);
+
+    min-height: 100vh;
+
+    /*
+        GLOBAL TEXT SPACING
+    */
+    letter-spacing: 3px;
+
+    line-height: 1.6;
+
+    /*
+        REQUIRED FOR PAGE BORDER POSITIONING
+    */
+    position: relative;
+
+}
+
+/* =========================
+   BACKGROUND STARS IMAGE
+========================= */
+
+body::before {
+
+    content: "";
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    /*
+        CHANGE STAR IMAGE HERE
+    */
+    background-image: url('../images/stars.png');
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-repeat: no-repeat;
+
+    /*
+        CHANGE STAR VISIBILITY HERE
+        LOWER = MORE SUBTLE
+    */
+    opacity: 0.25;
+
+    pointer-events: none;
+
+    z-index: -1;
+
+}
+
+/* =========================
+   OBSIDIAN BORDER
+========================= */
+
+body::after {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    right: 0;
+
+    /*
+        MAKES BORDER FOLLOW PAGE HEIGHT
+    */
+    bottom: 0;
+
+    pointer-events: none;
+
+    z-index: 999;
+
+    /*
+        CHANGE BORDER THICKNESS HERE
+    */
+    border: 32px solid transparent;
+
+    /*
+        CHANGE BORDER IMAGE HERE
+    */
+    border-image: url('../images/obsidian-border.png') 127 round;
+
+    /*
+        CHANGE BORDER VISIBILITY HERE
+    */
+    opacity: 0.95;
+
+}
+
+/* =========================
+   GLOBAL LINK RESET
+========================= */
+
+a {
+
+    text-decoration: none;
+
+    color: inherit;
+
+}
+
+/* =========================
+   GLOBAL SELECTION COLOR
+========================= */
+
+::selection {
+
+    background: var(--primary-color);
+
+    color: white;
+
+}
+
+/* =========================
+   GLOBAL GLOW UTILITY
+   CAN BE REUSED LATER
+========================= */
+
+.glow {
+
+    box-shadow:
+    0 0 10px rgba(155, 92, 255, 0.4),
+    0 0 20px rgba(155, 92, 255, 0.3),
+    0 0 40px rgba(155, 92, 255, 0.2);
+
+}
+
+/* =========================
+   HIDE SCROLLBAR
+========================= */
+
+/* CHROME, EDGE, SAFARI */
+
+::-webkit-scrollbar {
+
+    width: 0;
+
+    background: transparent;
+
+}
+
+/* FIREFOX */
+
+html {
+
+    scrollbar-width: none;
+
+}
+

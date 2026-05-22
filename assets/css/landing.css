@@ -1,0 +1,429 @@
+/* =========================
+   MAIN PAGE CONTAINER
+========================= */
+
+.landing-container {
+
+    width: 90%;
+    max-width: var(--max-width);
+
+    margin: auto;
+
+    padding-top: 80px;
+    padding-bottom: 80px;
+
+    text-align: center;
+
+}
+
+/* =========================
+   HERO SECTION
+========================= */
+
+.hero-section {
+
+    margin-bottom: 30px;
+
+}
+
+/* =========================
+   SERVER TITLE
+========================= */
+
+.server-title {
+
+    /* CHANGE TITLE SIZE HERE */
+    font-size: clamp(3rem, 8vw, 6rem);
+
+    font-weight: bold;
+
+    color: var(--primary-color);
+
+    margin-top: 30px;
+
+    margin-bottom: 30px;
+
+    word-break: break-word;
+
+    /* MAGIC GLOW EFFECT CHANGE COLORS/STRENGTH HERE */
+
+    text-shadow:
+    0 0 2px rgba(255, 255, 255, 0.8),
+    0 0 4px rgba(192, 132, 252, 0.9),
+    0 0 8px rgba(155, 92, 255, 0.8),
+    0 0 0px rgba(96, 165, 250, 0.5);
+
+}
+
+/* =========================
+   SERVER INFO
+========================= */
+
+.server-info {
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 15px;
+
+    font-size: clamp(1rem, 2vw, 1.5rem);
+
+}
+
+/* =========================
+   STORE SECTION
+========================= */
+
+.store-section {
+
+    margin-bottom: 50px;
+
+}
+
+/* =========================
+   RESPONSIVE GRID
+========================= */
+
+.store-grid {
+
+    display: grid;
+
+    /*
+        CHANGE GRID LAYOUT HERE
+
+        repeat(2, 1fr)
+        = 2 columns
+
+        You can change it later to:
+        repeat(3, 1fr)
+        etc
+    */
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 10px;
+
+}
+
+/* =========================
+   STORE CARDS
+========================= */
+
+.store-card {
+
+    background: transparent;
+
+    border-radius: 20px;
+
+    padding: 40px 20px;
+
+    transition: 0.3s ease;
+
+}
+
+.store-card:hover {
+
+    transform: translateY(-5px);
+
+    border-color: var(--secondary-color);
+
+}
+
+/* =========================
+   CARD TITLE
+========================= */
+
+.store-card h2 {
+
+    margin-bottom: 25px;
+
+    font-size: clamp(2.5rem, 4vw, 4rem);
+}
+
+/* =========================
+   BUY BUTTON
+========================= */
+
+.store-button {
+
+    display: inline-block;
+
+    background: var(--primary-color);
+
+    color: white;
+
+    padding: 8px 55px;
+
+    border-radius: 12px;
+
+    font-size: 2.5rem;
+
+    font-weight: bold;
+
+    transition: 0.3s ease;
+
+    letter-spacing: 3px;
+
+    /*
+    BETTER MOBILE TAPPING
+    */
+    -webkit-tap-highlight-color: transparent;
+
+    touch-action: manipulation;
+
+    user-select: none;
+}
+
+/* BUTTON HOVER EFFECT */
+
+.store-button:hover {
+
+    background: var(--hover-color);
+
+    transform: scale(1.05);
+
+}
+
+/* =========================
+   SUPPORT SECTION
+========================= */
+
+.support-section {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 20px;
+
+}
+
+/* =========================
+   SUPPORT TEXT
+========================= */
+
+.support-text {
+
+    font-size: 1.1rem;
+
+}
+
+/* =========================
+   DISCORD LINK
+========================= */
+
+.discord-link {
+
+    color: var(--secondary-color);
+
+    font-size: 1.2rem;
+
+    font-weight: bold;
+
+}
+
+/* =========================
+   MINECRAFT GLOW TEXT
+========================= */
+
+.minecraft-glow {
+
+    text-shadow:
+    0 0 5px rgba(255, 255, 255, 0.7),
+    0 0 5px rgba(192, 132, 252, 0.8),
+    0 0 15px rgba(155, 92, 255, 0.8);
+
+}
+
+/* =========================
+   CLICK TO COPY TEXT
+========================= */
+
+.copy-text {
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+
+}
+
+.copy-text:hover {
+
+    color: var(--secondary-color);
+
+    text-shadow:
+    0 0 5px rgba(192, 132, 252, 0.8);
+
+}
+
+/* =========================
+   MOBILE RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+
+    /* =========================
+       MAIN CONTAINER
+    ========================= */
+
+    .landing-container {
+
+        width: 80%;
+
+        padding-top: 40px;
+        padding-bottom: 50px;
+
+    }
+
+    /* =========================
+       SERVER TITLE
+    ========================= */
+
+    .server-title {
+
+        /*
+            SMALLER MOBILE TITLE
+        */
+        font-size: clamp(2.5rem, 12vw, 4rem);
+
+        margin-top: 50px;
+
+        margin-bottom: 20px;
+
+        line-height: 1.2;
+
+    }
+
+    /* =========================
+       SERVER INFO
+    ========================= */
+
+    .server-info {
+
+        font-size: 0.9rem;
+
+        gap: 10px;
+
+    }
+
+    /* =========================
+       STORE GRID
+    ========================= */
+
+    .store-grid {
+
+        /*
+            1 COLUMN MOBILE LAYOUT
+        */
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 2px;
+
+    }
+
+    /* =========================
+       STORE CARD
+    ========================= */
+
+    .store-card {
+
+        padding: 18px 6px;
+
+    }
+
+    /* =========================
+       CARD TITLES
+    ========================= */
+
+    .store-card h2 {
+
+        font-size: clamp(2rem, 8vw, 3rem);
+
+        margin-bottom: 18px;
+
+    }
+
+    /* =========================
+       BUTTONS
+    ========================= */
+
+    .store-button {
+
+        /*
+            MOBILE BUTTON SIZE
+        */
+        font-size: 1.5rem;
+
+        padding: 10px 45px;
+
+        letter-spacing: 2px;
+
+        border-radius: 10px;
+
+    }
+
+    /* =========================
+       SUPPORT SECTION
+    ========================= */
+
+    .support-section {
+
+        gap: 15px;
+
+    }
+
+    .support-text {
+
+        font-size: 0.9rem;
+
+        line-height: 1.5;
+
+    }
+
+    .discord-link {
+
+        font-size: 1rem;
+
+    }
+
+    /* =========================
+    MOBILE BORDER
+    ========================= */
+
+    body::after {
+
+        /*
+            THINNER BORDER FOR MOBILE
+        */
+        border: 16px solid transparent;
+
+        /*
+            REQUIRED AGAIN FOR MOBILE
+            OTHERWISE BORDER DISAPPEARS
+        */
+        border-image: url('../images/obsidian-border.png') 127 round;
+
+    }
+
+    /* =========================
+    MOBILE SUPPORT POSITION
+    ========================= */
+
+    .support-section {
+
+        position: fixed;
+
+        bottom: 35px;
+
+        left: 50%;
+
+        transform: translateX(-50%);
+
+        width: 90%;
+
+        text-align: center;
+
+        z-index: 100;
+
+    }
+}
