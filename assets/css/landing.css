@@ -33,7 +33,7 @@
 .server-title {
 
     /* CHANGE TITLE SIZE HERE */
-    font-size: clamp(3rem, 8vw, 6rem);
+    font-size: clamp(3rem, 8vw, 8rem);
 
     font-weight: bold;
 
@@ -66,7 +66,7 @@
 
     gap: 15px;
 
-    font-size: clamp(1rem, 2vw, 1.5rem);
+    font-size: clamp(1rem, 2vw, 2rem);
 
 }
 
@@ -204,8 +204,11 @@
 
 .support-text {
 
-    font-size: 1.1rem;
+    font-size: 1.7rem;
 
+    font-weight: bold;
+
+    letter-spacing: 5px;
 }
 
 /* =========================
@@ -216,7 +219,7 @@
 
     color: var(--secondary-color);
 
-    font-size: 1.2rem;
+    font-size: 1.5rem;
 
     font-weight: bold;
 
@@ -253,6 +256,8 @@
     cursor: pointer;
 
     transition: 0.2s ease;
+
+    display: inline-block;
 
 }
 
@@ -314,7 +319,7 @@
         /*
             SMALLER MOBILE TITLE
         */
-        font-size: clamp(2.5rem, 12vw, 4rem);
+        font-size: clamp(2.5rem, 12vw, 6rem);
 
         margin-top: 60px;
 
