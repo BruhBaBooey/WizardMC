@@ -4,14 +4,6 @@
 
 .landing-container {
 
-    width: 90%;
-    max-width: var(--max-width);
-
-    margin: auto;
-
-    padding-top: 80px;
-    padding-bottom: 80px;
-
     text-align: center;
 
 }
@@ -172,6 +164,18 @@
     touch-action: manipulation;
 
     user-select: none;
+
+    /*
+    BUTTON BORDER
+    */
+    border: 4px solid rgba(255, 255, 255, 0.15);
+
+    /*
+        SUBTLE DEPTH
+    */
+    box-shadow:
+    0 4px 0 rgba(0, 0, 0, 0.4),
+    0 0 10px rgba(155, 92, 255, 0.2);
 }
 
 /* BUTTON HOVER EFFECT */
@@ -181,6 +185,26 @@
     background: var(--hover-color);
 
     transform: scale(1.05);
+
+    /*
+    STRONGER HOVER GLOW
+    */
+    box-shadow:
+    0 2px 0 rgba(0, 0, 0, 0.4),
+    0 0 12px rgba(192, 132, 252, 0.4);
+
+}
+
+/* =========================
+   BUTTON PRESS EFFECT
+========================= */
+
+.store-button:active {
+
+    transform: translateY(4px);
+
+    box-shadow:
+    0 0 5px rgba(192, 132, 252, 0.3);
 
 }
 
@@ -498,24 +522,4 @@
         font-size: 1rem;
 
     }
-
-        /* =========================
-       MOBILE BORDER
-    ========================= */
-
-    body::after {
-
-        /*
-            THINNER BORDER FOR MOBILE
-        */
-        border: 16px solid transparent;
-
-        /*
-            REQUIRED AGAIN FOR MOBILE
-            OTHERWISE BORDER DISAPPEARS
-        */
-        border-image: url('../images/obsidian-border.png') 127 round;
-
-    }
-
 }
