@@ -68,7 +68,14 @@ body::after {
     color: var(--primary-color);
 
     letter-spacing: 8px;
+    
+    /* MAGIC GLOW EFFECT CHANGE COLORS/STRENGTH HERE */
 
+    text-shadow:
+    0 0 2px rgba(255, 255, 255, 0.8),
+    0 0 4px rgba(192, 132, 252, 0.9),
+    0 0 8px rgba(155, 92, 255, 0.8),
+    0 0 0px rgba(96, 165, 250, 0.5);
 }
 
 /* =========================
