@@ -187,46 +187,6 @@ body::before {
 
 }
 
-/* =========================
-   OBSIDIAN BORDER
-========================= */
-
-body::after {
-
-    content: "";
-
-    position: absolute;
-
-    top: 0;
-    left: 0;
-
-    right: 0;
-
-    /*
-        MAKES BORDER FOLLOW PAGE HEIGHT
-    */
-    bottom: 0;
-
-    pointer-events: none;
-
-    z-index: 999;
-
-    /*
-        CHANGE BORDER THICKNESS HERE
-    */
-    border: 32px solid transparent;
-
-    /*
-        CHANGE BORDER IMAGE HERE
-    */
-    border-image: url('../images/obsidian-border.png') 127 round;
-
-    /*
-        CHANGE BORDER VISIBILITY HERE
-    */
-    opacity: 0.95;
-
-}
 
 /* =========================
    GLOBAL LINK RESET
@@ -325,25 +285,6 @@ html {
 ========================= */
 
 @media (max-width: 768px) {
-
-    /* =========================
-       GLOBAL MOBILE BORDER
-    ========================= */
-
-    body::after {
-
-        /*
-            THINNER BORDER ON MOBILE
-        */
-        border: 16px solid transparent;
-
-        /*
-            REQUIRED AGAIN
-            OR BORDER MAY DISAPPEAR
-        */
-        border-image: url('../images/obsidian-border.png') 127 round;
-
-    }
 
     /* =========================
        MOBILE BACKGROUND FIXES
