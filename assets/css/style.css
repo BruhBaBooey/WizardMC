@@ -145,6 +145,7 @@ body {
     */
     position: relative;
 
+    overflow-y: auto;
 }
 
 /* =========================
@@ -186,46 +187,6 @@ body::before {
 
 }
 
-/* =========================
-   OBSIDIAN BORDER
-========================= */
-
-body::after {
-
-    content: "";
-
-    position: absolute;
-
-    top: 0;
-    left: 0;
-
-    right: 0;
-
-    /*
-        MAKES BORDER FOLLOW PAGE HEIGHT
-    */
-    bottom: 0;
-
-    pointer-events: none;
-
-    z-index: 999;
-
-    /*
-        CHANGE BORDER THICKNESS HERE
-    */
-    border: 32px solid transparent;
-
-    /*
-        CHANGE BORDER IMAGE HERE
-    */
-    border-image: url('../images/obsidian-border.png') 127 round;
-
-    /*
-        CHANGE BORDER VISIBILITY HERE
-    */
-    opacity: 0.95;
-
-}
 
 /* =========================
    GLOBAL LINK RESET
@@ -287,3 +248,94 @@ html {
 
 }
 
+/* =========================
+   GLOBAL PAGE CONTAINER
+   USED FOR ALL PAGES
+========================= */
+
+.page-container {
+
+    width: 90%;
+
+    max-width: var(--max-width);
+
+    margin: auto;
+
+    /*
+        MATCH LANDING PAGE HEIGHT
+    */
+    min-height: 100vh;
+
+    /*
+        MAKES ALL PAGES ALIGN
+        LIKE LANDING PAGE
+    */
+    display: flex;
+
+    flex-direction: column;
+
+    padding-top: 80px;
+    padding-bottom: 80px;
+
+}
+
+/* =========================
+   GLOBAL MOBILE RESPONSIVE
+   APPLIES TO ALL PAGES
+========================= */
+
+@media (max-width: 768px) {
+
+    /* =========================
+       MOBILE BACKGROUND FIXES
+    ========================= */
+
+    body {
+
+        /*
+            PREVENT MOBILE OVERFLOW
+        */
+        overflow-x: hidden;
+
+        /*
+            BETTER MOBILE RENDERING
+        */
+        background-attachment: scroll;
+
+    }
+
+    /* =========================
+       MOBILE STAR BACKGROUND
+    ========================= */
+
+    body::before {
+
+        /*
+            BETTER MOBILE STAR FIT
+        */
+        background-size: cover;
+
+        background-position: center;
+
+    }
+
+    /* =========================
+    GLOBAL MOBILE PAGE LAYOUT
+    ========================= */
+
+    .page-container {
+
+    width: 88%;
+
+    min-height: 100vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    padding-top: 30px;
+    padding-bottom: 30px;
+
+    }
+
+}

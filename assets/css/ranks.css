@@ -1,0 +1,489 @@
+/* =========================
+   OBSIDIAN BORDER
+========================= */
+
+body::after {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    right: 0;
+    bottom: 0;
+
+    pointer-events: none;
+
+    z-index: 999;
+
+    /*
+        DESKTOP BORDER SIZE
+    */
+    border: 21px solid transparent;
+
+    border-image:
+    url('../images/obsidian-border.png') 127 round;
+
+    opacity: 0.95;
+
+}
+
+/* =========================
+   RANKS PAGE CONTAINER
+========================= */
+
+.ranks-container {
+
+    text-align: center;
+
+    padding-top: 60px;
+
+    padding-bottom: 60px;
+
+}
+
+/* =========================
+   PAGE TITLE SECTION
+========================= */
+
+.ranks-header {
+
+    margin-bottom: 70px;
+
+}
+
+/* =========================
+   RANKS TITLE
+========================= */
+
+.ranks-title {
+
+    /*
+        CHANGE TITLE SIZE HERE
+    */
+    font-size: clamp(3rem, 8vw, 7rem);
+
+    color: var(--primary-color);
+
+    letter-spacing: 8px;
+
+}
+
+/* =========================
+   RANKS GRID
+========================= */
+
+.ranks-grid {
+
+    display: grid;
+
+    /*
+        2 COLUMN DESKTOP GRID
+    */
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 40px;
+
+    justify-items: center;
+
+}
+
+/* =========================
+   RANK CARD
+========================= */
+
+.rank-card {
+
+    width: 100%;
+
+    max-width: 420px;
+
+    /*
+        MORE HEIGHT FOR RANK IMAGE
+    */
+    padding: 25px 20px 35px;
+
+    border-radius: 24px;
+
+    background: rgba(25, 10, 45, 0.65);
+
+    /*
+        SLIMMER BORDER
+    */
+    border: 1.5px solid rgba(255, 255, 255, 0.08);
+
+    backdrop-filter: blur(8px);
+
+    transition: 0.3s ease;
+
+    box-shadow:
+    0 0 15px rgba(155, 92, 255, 0.15);
+
+}
+
+/* =========================
+   RANK IMAGE
+========================= */
+
+.rank-image {
+
+    width: 100%;
+
+    max-width: 260px;
+
+    margin-bottom: 25px;
+
+    image-rendering: pixelated;
+
+    filter:
+    drop-shadow(0 0 10px rgba(155, 92, 255, 0.35));
+
+}
+
+/* =========================
+   CARD HOVER
+========================= */
+
+.rank-card:hover {
+
+    transform: translateY(-8px);
+
+    border-color: rgba(192, 132, 252, 0.5);
+
+    box-shadow:
+    0 0 20px rgba(192, 132, 252, 0.25);
+
+}
+
+/* =========================
+   RANK NAME
+========================= */
+
+.rank-name {
+
+    font-size: clamp(2rem, 4vw, 3.5rem);
+
+    margin-bottom: 20px;
+
+}
+
+/* =========================
+   RANK PRICE
+========================= */
+
+.rank-price {
+
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+
+    color: var(--secondary-color);
+
+}
+
+/* =========================
+   CENTER LAST CARD
+========================= */
+
+.dragon-rank {
+
+    grid-column: 1 / -1;
+
+    justify-self: center;
+
+}
+
+/* =========================
+   PAYMENT MODAL
+========================= */
+
+.payment-modal {
+
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.7);
+
+    display: none;
+
+    justify-content: center;
+
+    align-items: center;
+
+    z-index: 2000;
+
+}
+
+/* SHOW MODAL */
+
+.payment-modal.active {
+
+    display: flex;
+
+}
+
+/* =========================
+   PAYMENT BOX
+========================= */
+
+.payment-box {
+
+    width: 90%;
+
+    max-width: 500px;
+
+    padding: 40px 30px;
+
+    border-radius: 24px;
+
+    background: rgba(20, 10, 35, 0.95);
+
+    border: 2px solid rgba(192, 132, 252, 0.3);
+
+    text-align: center;
+
+}
+
+/* =========================
+   PAYMENT BUTTONS
+========================= */
+
+.payment-button {
+
+    display: block;
+
+    width: 100%;
+
+    margin-top: 20px;
+
+    padding: 16px;
+
+    border-radius: 14px;
+
+    background: var(--primary-color);
+
+    color: white;
+
+    font-size: 1.3rem;
+
+    border: none;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+
+    font-family: 'Minecraft', Arial, sans-serif;
+
+}
+
+.payment-button:hover {
+
+    transform: scale(1.03);
+
+}
+
+/* CLOSE BUTTON */
+
+.close-button {
+
+    margin-top: 25px;
+
+    background: transparent;
+
+    color: white;
+
+    border: none;
+
+    font-size: 1.1rem;
+
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    font-family: 'Minecraft', Arial, sans-serif;
+
+}
+
+/* =========================
+   QR IMAGE
+========================= */
+
+.upi-qr {
+
+    width: 240px;
+
+    max-width: 100%;
+
+    margin-top: 20px;
+
+    margin-bottom: 20px;
+
+    padding: 10px;
+
+    background: white;
+
+    border-radius: 16px;
+
+}
+
+/* =========================
+   UPI ID
+========================= */
+
+.upi-id {
+
+    color: #ccc;
+
+    font-size: 0.9rem;
+
+    word-break: break-word;
+
+}
+
+/* =========================
+   BACK BUTTON
+========================= */
+
+.back-button {
+
+    position: absolute;
+
+    /*
+        POSITION
+    */
+    top: 40px;
+    left: 40px;
+
+    /*
+        SIZE
+    */
+    width: 87px;
+    height: 40px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    /*
+        PERFECT TEXT CENTERING
+    */
+    line-height: 1;
+
+    /*
+        REMOVE WEIRD TEXT OFFSET
+    */
+    padding-top: 5px;
+
+    padding-left: 5px;
+
+    background: rgba(25, 10, 45, 0.85);
+
+    color: white;
+
+    border-radius: 7px;
+
+    font-size: 1.4rem;
+
+    letter-spacing: 3px;
+
+    text-decoration: none;
+
+    backdrop-filter: blur(8px);
+
+    z-index: 5000;
+
+    transition: 0.25s ease;
+
+
+}
+
+/* =========================
+   HOVER EFFECT
+========================= */
+
+.back-button:hover {
+
+    transform: translateX(-4px);
+
+    color: white;
+
+    text-shadow:
+    0 0 2px rgba(255, 255, 255, 1),
+    0 0 2px rgba(192, 132, 252, 1),
+    0 0 3px rgba(155, 92, 255, 1);
+
+}
+
+/* =========================
+   MOBILE RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+
+    .back-button {
+
+        top: 25px;
+        left: 25px;
+
+        /*
+            AUTO FIT TEXT
+        */
+        width: 46px;
+        height: auto;
+
+        /*
+            SPACE AROUND TEXT
+        */
+        
+        padding-top: 3px;
+        padding-bottom: px;
+
+        font-size: 0.8rem;
+
+        border-radius: 4px;
+
+    }
+
+    .ranks-title {
+
+        font-size: clamp(3rem, 12vw, 5rem);
+
+    }
+
+    .ranks-grid {
+
+        gap: 20px;
+
+    }
+
+    .rank-card {
+
+        padding: 25px 15px;
+
+    }
+
+    .rank-name {
+
+        font-size: clamp(1.8rem, 7vw, 2.5rem);
+
+    }
+
+    .rank-price {
+
+        font-size: clamp(1.2rem, 5vw, 2rem);
+
+    }
+
+    body::after {
+
+        border: 16px solid transparent;
+
+        border-image:
+        url('../images/obsidian-border.png') 127 round;
+
+    }
+
+    
+}

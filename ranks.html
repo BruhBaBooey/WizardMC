@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <title>Wizard MC - Ranks</title>
+
+    <!-- GLOBAL CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- RANKS CSS -->
+    <link rel="stylesheet" href="assets/css/ranks.css">
+
+</head>
+
+<body>
+
+    <!-- BACK BUTTON -->
+
+    <a
+        href="index.html"
+        class="back-button"
+    >
+        Back    
+    </a>
+    <!-- PAGE CONTAINER -->
+    <main class="page-container ranks-container">
+
+        <!-- PAGE TITLE -->
+        <section class="ranks-header">
+
+            <h1 class="ranks-title minecraft-glow">
+                RANKS
+            </h1>
+
+        </section>
+
+        <!-- RANKS GRID -->
+        <section class="ranks-grid">
+
+            <!-- ARCANE -->
+            <div class="rank-card">
+
+                <img
+                    src="assets/images/temp-rank.png"
+                    alt="Arcane Rank"
+                    class="rank-image"
+                >
+
+                <p class="rank-price">
+                    ₹50
+                </p>
+
+            </div>
+
+            <!-- WARLORD -->
+            <div class="rank-card">
+
+                <img
+                    src="assets/images/temp-rank.png"
+                    alt="Warlord Rank"
+                    class="rank-image"
+                >
+
+                <p class="rank-price">
+                    ₹80
+                </p>
+
+            </div>
+
+            <!-- CELESTIAL -->
+            <div class="rank-card">
+
+                <img
+                    src="assets/images/temp-rank.png"
+                    alt="Celestial Rank"
+                    class="rank-image"
+                >
+
+                <p class="rank-price">
+                    ₹120
+                </p>
+
+            </div>
+
+            <!-- IMMORTAL -->
+            <div class="rank-card">
+
+                <img
+                    src="assets/images/temp-rank.png"
+                    alt="Immortal Rank"
+                    class="rank-image"
+                >
+
+                <p class="rank-price">
+                    ₹160
+                </p>
+
+            </div>
+
+            <!-- DRAGON -->
+            <div class="rank-card dragon-rank">
+
+                <img
+                    src="assets/images/temp-rank.png"
+                    alt="Dragon Rank"
+                    class="rank-image"
+                >
+
+                <p class="rank-price">
+                    ₹220
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+    <!-- PAYMENT POPUP -->
+
+    <div class="payment-modal" id="paymentModal">
+
+        <div class="payment-box">
+
+            <h2 id="modalRankName">
+                Rank
+            </h2>
+
+            <p id="modalRankPrice">
+                ₹0
+            </p>
+
+            <button
+                class="payment-button upi-button"
+                id="upiButton"
+            >
+                UPI
+            </button>
+
+            <a
+                id="discordButton"
+                target="_blank"
+                class="payment-button discord-button"
+            >
+                Discord
+            </a>
+
+            <button class="close-button" id="closeModal">
+                Close
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- UPI PAYMENT POPUP -->
+
+    <div
+        class="payment-modal"
+        id="upiModal"
+    >
+
+        <div class="payment-box">
+
+            <h2 class="minecraft-glow">
+                Scan To Pay
+            </h2>
+
+            <p
+                id="upiAmount"
+                class="rank-price"
+            >
+                Amount
+            </p>
+
+            <img
+                id="upiQrImage"
+                class="upi-qr"
+                src=""
+                alt="UPI QR"
+            >
+
+            <p
+                class="upi-id"
+                id="upiIdText"
+            >
+                wizardmc@upi
+            </p>
+
+            <button
+                class="close-button"
+                id="closeUpiModal"
+            >
+                Close
+            </button>
+
+        </div>
+
+    </div>
+    <!-- RANKS JS -->
+    <script src="assets/js/ranks.js"></script>
+
+</body>
+
+</html>
