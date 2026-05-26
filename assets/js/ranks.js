@@ -72,6 +72,7 @@ document.querySelectorAll(".quantity-text");
 
 const itemType = "rank";
 
+
 /* =========================
    ADD BUTTON LOGIC
 ========================= */
