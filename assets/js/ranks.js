@@ -1,42 +1,5 @@
 const rankCards = document.querySelectorAll(".rank-card");
 
-const modal =
-document.getElementById("paymentModal");
-
-const closeModal =
-document.getElementById("closeModal");
-
-const modalRankName =
-document.getElementById("modalRankName");
-
-const modalRankPrice =
-document.getElementById("modalRankPrice");
-
-const discordButton =
-document.getElementById("discordButton");
-
-const upiButton =
-document.getElementById("upiButton");
-
-/* =========================
-   UPI MODAL ELEMENTS
-========================= */
-
-const upiModal =
-document.getElementById("upiModal");
-
-const closeUpiModal =
-document.getElementById("closeUpiModal");
-
-const upiQrImage =
-document.getElementById("upiQrImage");
-
-const upiAmount =
-document.getElementById("upiAmount");
-
-const upiIdText =
-document.getElementById("upiIdText");
-
 /* =========================
    YOUR UPI ID
 ========================= */
@@ -49,6 +12,12 @@ const upiId =
 ========================= */
 
 let currentRank = null;
+
+/* =========================
+   GLOBAL CART
+========================= */
+
+let cart = [];
 
 /* =========================
    RANK DATA
@@ -78,130 +47,197 @@ const ranks = [
 ];
 
 /* =========================
-   OPEN PAYMENT MODAL
+   CART BUTTONS
 ========================= */
 
-rankCards.forEach((card, index) => {
+const addButtons =
+document.querySelectorAll(".add-button");
 
-    card.addEventListener("click", () => {
+const quantityControls =
+document.querySelectorAll(".quantity-controls");
 
-        const rank = ranks[index];
+const minusButtons =
+document.querySelectorAll(".minus-btn");
 
-        currentRank = rank;
+const plusButtons =
+document.querySelectorAll(".plus-btn");
 
-        modal.classList.add("active");
+const quantityTexts =
+document.querySelectorAll(".quantity-text");
 
-        modalRankName.textContent =
-        rank.name;
 
-        modalRankPrice.textContent =
-        `₹${rank.price}`;
+/* =========================
+   ITEM TYPE
+========================= */
+
+const itemType = "rank";
+
+/* =========================
+   ADD BUTTON LOGIC
+========================= */
+
+addButtons.forEach((button, index) => {
+
+    button.addEventListener("click", () => {
+
+        const item = ranks[index];
 
         /* =========================
-           DISCORD LINK
+           RANKS
         ========================= */
 
-        const message =
-        encodeURIComponent(
-            `Hello, I would like to buy the ${rank.name} rank for ₹${rank.price}.`
-        );
+        if (itemType === "rank") {
 
-        discordButton.href =
-        `https://discord.gg/UeTj2xv6s`;
+            cart.push({
+                id:
+                item.name.toLowerCase().replace(/\s+/g, "-"),
+
+                name:
+                `${item.name} Rank`,
+
+                type:
+                "rank",
+
+                price:
+                item.price,
+
+                quantity:
+                1,
+
+                total:
+                item.price
+            });
+
+            button.innerText =
+            "ADDED";
+
+            button.classList.add("added");
+
+            button.disabled = true;
+
+        }
+
+        /* =========================
+           KEYS / KITS
+        ========================= */
+
+        else {
+
+            button.style.display =
+            "none";
+
+            quantityControls[index]
+            .classList.add("active");
+
+            quantityTexts[index]
+            .innerText = 1;
+
+            cart.push({
+                id:
+                item.name.toLowerCase().replace(/\s+/g, "-"),
+
+                name:
+                item.name,
+
+                type:
+                itemType,
+
+                price:
+                item.price,
+
+                quantity:
+                1,
+
+                total:
+                item.price
+            });
+
+        }
+
+        console.log(cart);
 
     });
 
 });
 
 /* =========================
-   CLOSE PAYMENT MODAL
+   PLUS BUTTON
 ========================= */
 
-closeModal.addEventListener("click", () => {
+plusButtons.forEach((button, index) => {
 
-    modal.classList.remove("active");
+    button.addEventListener("click", () => {
+
+        let quantity =
+        Number(quantityTexts[index].innerText);
+
+        quantity++;
+
+        quantityTexts[index].innerText =
+        quantity;
+
+        const cartItem =
+        cart[index];
+
+        cartItem.quantity =
+        quantity;
+
+        cartItem.total =
+        quantity * cartItem.price;
+
+        console.log(cart);
+
+    });
 
 });
 
 /* =========================
-   CLICK OUTSIDE CLOSE
+   MINUS BUTTON
 ========================= */
 
-modal.addEventListener("click", (e) => {
+minusButtons.forEach((button, index) => {
 
-    if (e.target === modal) {
+    button.addEventListener("click", () => {
 
-        modal.classList.remove("active");
+        let quantity =
+        Number(quantityTexts[index].innerText);
 
-    }
+        quantity--;
 
-});
+        /* =========================
+           REMOVE ITEM
+        ========================= */
 
-/* =========================
-   OPEN UPI MODAL
-========================= */
+        if (quantity <= 0) {
 
-upiButton.addEventListener("click", () => {
+            quantityControls[index]
+            .classList.remove("active");
 
-    if (!currentRank) return;
+            addButtons[index]
+            .style.display = "block";
 
-    /*
-        CLOSE FIRST MODAL
-    */
-    modal.classList.remove("active");
+            cart.splice(index, 1);
 
-    /*
-        SHOW SECOND MODAL
-    */
-    upiModal.classList.add("active");
+        }
 
-    /*
-        SET AMOUNT TEXT
-    */
-    upiAmount.textContent =
-    `₹${currentRank.price}`;
+        else {
 
-    /*
-        SHOW UPI ID
-    */
-    upiIdText.textContent =
-    upiId;
+            quantityTexts[index]
+            .innerText = quantity;
 
-    /*
-        CREATE UPI LINK
-    */
-    const upiLink =
-    `upi://pay?pa=${upiId}&pn=WizardMC&am=${currentRank.price}&cu=INR`;
+            const cartItem =
+            cart[index];
 
-    /*
-        GENERATE QR
-    */
-    upiQrImage.src =
-    `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${encodeURIComponent(upiLink)}`;
+            cartItem.quantity =
+            quantity;
+
+            cartItem.total =
+            quantity * cartItem.price;
+
+        }
+
+        console.log(cart);
+
+    });
 
 });
-
-/* =========================
-   CLOSE UPI MODAL BUTTON
-========================= */
-
-closeUpiModal.addEventListener("click", () => {
-
-    upiModal.classList.remove("active");
-
-});
-
-/* =========================
-   CLOSE UPI MODAL OUTSIDE
-========================= */
-
-upiModal.addEventListener("click", (e) => {
-
-    if (e.target === upiModal) {
-
-        upiModal.classList.remove("active");
-
-    }
-
-});
-

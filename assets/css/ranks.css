@@ -204,149 +204,7 @@ body::after {
    PAYMENT MODAL
 ========================= */
 
-.payment-modal {
 
-    position: fixed;
-
-    inset: 0;
-
-    background: rgba(0, 0, 0, 0.7);
-
-    display: none;
-
-    justify-content: center;
-
-    align-items: center;
-
-    z-index: 2000;
-
-}
-
-/* SHOW MODAL */
-
-.payment-modal.active {
-
-    display: flex;
-
-}
-
-/* =========================
-   PAYMENT BOX
-========================= */
-
-.payment-box {
-
-    width: 90%;
-
-    max-width: 500px;
-
-    padding: 40px 30px;
-
-    border-radius: 24px;
-
-    background: rgba(20, 10, 35, 0.95);
-
-    border: 2px solid rgba(192, 132, 252, 0.3);
-
-    text-align: center;
-
-}
-
-/* =========================
-   PAYMENT BUTTONS
-========================= */
-
-.payment-button {
-
-    display: block;
-
-    width: 100%;
-
-    margin-top: 20px;
-
-    padding: 16px;
-
-    border-radius: 14px;
-
-    background: var(--primary-color);
-
-    color: white;
-
-    font-size: 1.3rem;
-
-    border: none;
-
-    cursor: pointer;
-
-    transition: 0.2s ease;
-
-    font-family: 'Minecraft', Arial, sans-serif;
-
-}
-
-.payment-button:hover {
-
-    transform: scale(1.03);
-
-}
-
-/* CLOSE BUTTON */
-
-.close-button {
-
-    margin-top: 25px;
-
-    background: transparent;
-
-    color: white;
-
-    border: none;
-
-    font-size: 1.1rem;
-
-    letter-spacing: 2px;
-
-    cursor: pointer;
-
-    font-family: 'Minecraft', Arial, sans-serif;
-
-}
-
-/* =========================
-   QR IMAGE
-========================= */
-
-.upi-qr {
-
-    width: 240px;
-
-    max-width: 100%;
-
-    margin-top: 20px;
-
-    margin-bottom: 20px;
-
-    padding: 10px;
-
-    background: white;
-
-    border-radius: 16px;
-
-}
-
-/* =========================
-   UPI ID
-========================= */
-
-.upi-id {
-
-    color: #ccc;
-
-    font-size: 0.9rem;
-
-    word-break: break-word;
-
-}
 
 /* =========================
    BACK BUTTON
@@ -420,6 +278,128 @@ body::after {
     0 0 2px rgba(255, 255, 255, 1),
     0 0 2px rgba(192, 132, 252, 1),
     0 0 3px rgba(155, 92, 255, 1);
+
+}
+
+/* =========================
+   CART CONTROLS
+========================= */
+
+.cart-controls {
+
+    margin-top: 20px;
+
+}
+
+/* =========================
+   ADD BUTTON
+========================= */
+
+.add-button {
+
+    width: 100%;
+
+    padding: 14px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: rgba(155, 92, 255, 0.85);
+
+    color: white;
+
+    font-family: 'Minecraft', Arial, sans-serif;
+
+    font-size: 1rem;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+
+}
+
+.add-button:hover {
+
+    transform: scale(1.03);
+
+    box-shadow:
+    0 0 15px rgba(192, 132, 252, 0.35);
+
+}
+
+/* =========================
+   ADDED STATE
+========================= */
+
+.add-button.added {
+
+    background: rgba(80, 200, 120, 0.85);
+
+}
+
+/* =========================
+   QUANTITY CONTROLS
+========================= */
+
+.quantity-controls {
+
+    display: none;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 20px;
+
+    margin-top: 10px;
+
+}
+
+/* SHOW */
+
+.quantity-controls.active {
+
+    display: flex;
+
+}
+
+/* =========================
+   PLUS MINUS BUTTONS
+========================= */
+
+.quantity-btn {
+
+    width: 40px;
+    height: 40px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: rgba(155, 92, 255, 0.85);
+
+    color: white;
+
+    font-size: 1.3rem;
+
+    cursor: pointer;
+
+    font-family: 'Minecraft', Arial, sans-serif;
+
+}
+
+/* =========================
+   QUANTITY TEXT
+========================= */
+
+.quantity-text {
+
+    font-size: 1.2rem;
+
+    min-width: 20px;
+
+    text-align: center;
 
 }
 

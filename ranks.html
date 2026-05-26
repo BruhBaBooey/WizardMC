@@ -27,6 +27,7 @@
     >
         Back    
     </a>
+    
     <!-- PAGE CONTAINER -->
     <main class="page-container ranks-container">
 
@@ -39,168 +40,208 @@
 
         </section>
 
-        <!-- RANKS GRID -->
-        <section class="ranks-grid">
+    <!-- RANKS GRID -->
+    <section class="ranks-grid">
 
-            <!-- ARCANE -->
-            <div class="rank-card dragon-rank">
-
-                <img
-                    src="assets/images/arcane-rank.png"
-                    alt="Arcane Rank"
-                    class="rank-image"
-                >
-
-                <p class="rank-price">
-                    ₹50
-                </p>
-
-            </div>
-
-            <!-- WARLORD -->
-            <div class="rank-card">
-
-                <img
-                    src="assets/images/warlord-rank.png"
-                    alt="Warlord Rank"
-                    class="rank-image"
-                >
-
-                <p class="rank-price">
-                    ₹80
-                </p>
-
-            </div>
-
-            <!-- CELESTIAL -->
-            <div class="rank-card">
-
-                <img
-                    src="assets/images/celestial-rank.png"
-                    alt="Celestial Rank"
-                    class="rank-image"
-                >
-
-                <p class="rank-price">
-                    ₹120
-                </p>
-
-            </div>
-
-            <!-- IMMORTAL -->
-            <div class="rank-card">
-
-                <img
-                    src="assets/images/immortal-rank.png"
-                    alt="Immortal Rank"
-                    class="rank-image"
-                >
-
-                <p class="rank-price">
-                    ₹160
-                </p>
-
-            </div>
-
-            <!-- DRAGON -->
-            <div class="rank-card">
-
-                <img
-                    src="assets/images/dragon-rank.png"
-                    alt="Dragon Rank"
-                    class="rank-image"
-                >
-
-                <p class="rank-price">
-                    ₹220
-                </p>
-
-            </div>
-
-        </section>
-
-    </main>
-    <!-- PAYMENT POPUP -->
-
-    <div class="payment-modal" id="paymentModal">
-
-        <div class="payment-box">
-
-            <h2 id="modalRankName">
-                Rank
-            </h2>
-
-            <p id="modalRankPrice">
-                ₹0
-            </p>
-
-            <button
-                class="payment-button upi-button"
-                id="upiButton"
-            >
-                UPI
-            </button>
-
-            <a
-                id="discordButton"
-                target="_blank"
-                class="payment-button discord-button"
-            >
-                Discord
-            </a>
-
-            <button class="close-button" id="closeModal">
-                Close
-            </button>
-
-        </div>
-
-    </div>
-
-    <!-- UPI PAYMENT POPUP -->
-
-    <div
-        class="payment-modal"
-        id="upiModal"
-    >
-
-        <div class="payment-box">
-
-            <h2 class="minecraft-glow">
-                Scan To Pay
-            </h2>
-
-            <p
-                id="upiAmount"
-                class="rank-price"
-            >
-                Amount
-            </p>
+        <!-- ARCANE -->
+        <div class="rank-card dragon-rank">
 
             <img
-                id="upiQrImage"
-                class="upi-qr"
-                src=""
-                alt="UPI QR"
+                src="assets/images/arcane-rank.png"
+                alt="Arcane Rank"
+                class="rank-image"
             >
 
-            <p
-                class="upi-id"
-                id="upiIdText"
-            >
-                wizardmc@upi
+            <p class="rank-price">
+                ₹50
             </p>
 
-            <button
-                class="close-button"
-                id="closeUpiModal"
-            >
-                Close
-            </button>
+            <div class="cart-controls">
+
+                <button class="add-button">
+                    ADD
+                </button>
+
+                <div class="quantity-controls">
+
+                    <button class="quantity-btn minus-btn">
+                        -
+                    </button>
+
+                    <span class="quantity-text">
+                        1
+                    </span>
+
+                    <button class="quantity-btn plus-btn">
+                        +
+                    </button>
+
+                </div>
+
+            </div>
 
         </div>
 
-    </div>
+        <!-- WARLORD -->
+        <div class="rank-card">
+
+            <img
+                src="assets/images/warlord-rank.png"
+                alt="Warlord Rank"
+                class="rank-image"
+            >
+
+            <p class="rank-price">
+                ₹80
+            </p>
+
+            <div class="cart-controls">
+
+                <button class="add-button">
+                    ADD
+                </button>
+
+                <div class="quantity-controls">
+
+                    <button class="quantity-btn minus-btn">
+                        -
+                    </button>
+
+                    <span class="quantity-text">
+                        1
+                    </span>
+
+                    <button class="quantity-btn plus-btn">
+                        +
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- CELESTIAL -->
+        <div class="rank-card">
+
+            <img
+                src="assets/images/celestial-rank.png"
+                alt="Celestial Rank"
+                class="rank-image"
+            >
+
+            <p class="rank-price">
+                ₹120
+            </p>
+
+            <div class="cart-controls">
+
+                <button class="add-button">
+                    ADD
+                </button>
+
+                <div class="quantity-controls">
+
+                    <button class="quantity-btn minus-btn">
+                        -
+                    </button>
+
+                    <span class="quantity-text">
+                        1
+                    </span>
+
+                    <button class="quantity-btn plus-btn">
+                        +
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- IMMORTAL -->
+        <div class="rank-card">
+
+            <img
+                src="assets/images/immortal-rank.png"
+                alt="Immortal Rank"
+                class="rank-image"
+            >
+
+            <p class="rank-price">
+                ₹160
+            </p>
+
+            <div class="cart-controls">
+
+                <button class="add-button">
+                    ADD
+                </button>
+
+                <div class="quantity-controls">
+
+                    <button class="quantity-btn minus-btn">
+                        -
+                    </button>
+
+                    <span class="quantity-text">
+                        1
+                    </span>
+
+                    <button class="quantity-btn plus-btn">
+                        +
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- DRAGON -->
+        <div class="rank-card">
+
+            <img
+                src="assets/images/dragon-rank.png"
+                alt="Dragon Rank"
+                class="rank-image"
+            >
+
+            <p class="rank-price">
+                ₹220
+            </p>
+
+            <div class="cart-controls">
+
+                <button class="add-button">
+                    ADD
+                </button>
+
+                <div class="quantity-controls">
+
+                    <button class="quantity-btn minus-btn">
+                        -
+                    </button>
+
+                    <span class="quantity-text">
+                        1
+                    </span>
+
+                    <button class="quantity-btn plus-btn">
+                        +
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    </main>
+
     <!-- RANKS JS -->
     <script src="assets/js/ranks.js"></script>
 
