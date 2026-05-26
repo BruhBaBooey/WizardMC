@@ -7,7 +7,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-    <title>Wizard MC - Ranks</title>
+    <title>Wizard MC - Kits</title>
 
     <!-- GLOBAL CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
@@ -237,6 +237,131 @@
 
     </main>
 
+        <!-- =========================
+            CART BUTTON
+        ========================= -->
+
+        <button
+            class="cart-toggle"
+            onclick="toggleCart()"
+        >
+            &lt; CART
+        </button>
+
+        <!-- =========================
+            SIDEBAR CART
+        ========================= -->
+
+        <div
+            class="cart-sidebar"
+            id="cartSidebar"
+        >
+
+            <!-- HEADER -->
+
+            <div class="cart-header">
+
+                <h2>
+                    CART
+                </h2>
+
+                <button
+                    class="close-cart"
+                    onclick="toggleCart()"
+                >
+                    ✕
+                </button>
+
+            </div>
+
+            <!-- CART ITEMS -->
+
+            <div id="cartItems">
+
+            </div>
+
+            <!-- FOOTER -->
+
+            <div class="cart-footer">
+
+                <div class="cart-total-row">
+
+                    <span>
+                        TOTAL
+                    </span>
+
+                    <span id="cartTotal">
+                        ₹0
+                    </span>
+
+                </div>
+
+            </div>
+
+        <button
+            class="checkout-btn"
+            onclick="checkout()"
+        >
+            CHECKOUT
+        </button>
+        
+        </div>
+
+    <!-- =========================
+        PAYMENT MODAL
+    ========================= -->
+
+    <div
+        class="payment-modal"
+        id="paymentModal"
+    >
+
+        <div class="payment-box">
+
+            <h2 class="minecraft-glow">
+                Scan To Pay
+            </h2>
+
+            <p
+                id="upiAmount"
+                class="rank-price"
+            >
+                ₹0
+            </p>
+
+            <img
+                id="upiQrImage"
+                class="upi-qr"
+                src=""
+                alt="UPI QR"
+            >
+
+            <p
+                class="upi-id"
+                id="upiIdText"
+            >
+                gareebjeetpatil@fam
+            </p>
+
+            <button
+                class="close-button"
+                id="closeModal"
+            >
+                Close
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- =========================
+        TOAST
+    ========================= -->
+
+    <div id="toast">
+        Your cart is empty
+    </div>
+    
     <!-- RANKS JS -->
     <script src="assets/js/kits.js"></script>
 

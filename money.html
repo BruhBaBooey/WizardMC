@@ -7,24 +7,300 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-    <title>Wizard MC - Ranks</title>
+    <title>Wizard MC - Money</title>
 
-    <!-- GLOBAL SITE STYLING -->
+    <!-- GLOBAL CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
 
-    <!-- PAGE SPECIFIC CSS -->
+    <!-- RANKS CSS -->
     <link rel="stylesheet" href="assets/css/money.css">
 
 </head>
 
 <body>
 
-    <!-- PAGE CONTENT -->
-    <main class="page-container">
+    <!-- BACK BUTTON -->
+
+    <a
+        href="index.html"
+        class="back-button"
+    >
+        Back    
+    </a>
+
+    <!-- PAGE CONTAINER -->
+    <main class="page-container ranks-container">
+
+    <!-- PAGE TITLE -->
+    <section class="ranks-header">
+
+        <h1 class="ranks-title minecraft-glow">
+            MONEY
+        </h1>
+
+    </section>
+
+    <!-- KITS GRID -->
+    <section class="ranks-grid">
+
+        <!-- DRAGON -->
+        <div class="rank-card dragon-rank">
+
+            <img
+                src="assets/images/temp-img.png"
+                alt="Dragon Kit"
+                class="rank-image"
+            >
+
+            <p class="rank-price">
+                ₹220
+            </p>
+
+            <div class="cart-controls">
+
+                <button class="add-button">
+                    ADD
+                </button>
+
+                <div class="quantity-controls">
+
+                    <button class="quantity-btn minus-btn">
+                        -
+                    </button>
+
+                    <span class="quantity-text">
+                        1
+                    </span>
+
+                    <button class="quantity-btn plus-btn">
+                        +
+                    </button>
+
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ARCANE -->
+        <div class="rank-card">
+
+            <img
+                src="assets/images/temp-img.png"
+                alt="Arcane Kit"
+                class="rank-image"
+            >
+
+            <p class="rank-price">
+                ₹50
+            </p>
+
+            <div class="cart-controls">
+
+                <button class="add-button">
+                    ADD
+                </button>
+
+                <div class="quantity-controls">
+
+                    <button class="quantity-btn minus-btn">
+                        -
+                    </button>
+
+                    <span class="quantity-text">
+                        1
+                    </span>
+
+                    <button class="quantity-btn plus-btn">
+                        +
+                    </button>
+
+                </div>
+
+            </div>
+        </div>
+
+        <!-- WARLORD -->
+        <div class="rank-card">
+
+            <img
+                src="assets/images/temp-img.png"
+                alt="Warlord Kit"
+                class="rank-image"
+            >
+
+            <p class="rank-price">
+                ₹80
+            </p>
+
+            <div class="cart-controls">
+
+                <button class="add-button">
+                    ADD
+                </button>
+
+                <div class="quantity-controls">
+
+                    <button class="quantity-btn minus-btn">
+                        -
+                    </button>
+
+                    <span class="quantity-text">
+                        1
+                    </span>
+
+                    <button class="quantity-btn plus-btn">
+                        +
+                    </button>
+
+                </div>
+
+            </div>
+        </div>
+
+        <!-- CELESTIAL -->
+        <div class="rank-card">
+
+            <img
+                src="assets/images/temp-img.png"
+                alt="Celestial Kit"
+                class="rank-image"
+            >
+
+            <p class="rank-price">
+                ₹120
+            </p>
+
+            <div class="cart-controls">
+
+                <button class="add-button">
+                    ADD
+                </button>
+
+                <div class="quantity-controls">
+
+                    <button class="quantity-btn minus-btn">
+                        -
+                    </button>
+
+                    <span class="quantity-text">
+                        1
+                    </span>
+
+                    <button class="quantity-btn plus-btn">
+                        +
+                    </button>
+
+                </div>
+
+            </div>
+        </div>
+
+        <!-- IMMORTAL -->
+        <div class="rank-card">
+
+            <img
+                src="assets/images/temp-img.png"
+                alt="Immortal Kit"
+                class="rank-image"
+            >
+
+            <p class="rank-price">
+                ₹160
+            </p>
+
+            <div class="cart-controls">
+
+                <button class="add-button">
+                    ADD
+                </button>
+
+                <div class="quantity-controls">
+
+                    <button class="quantity-btn minus-btn">
+                        -
+                    </button>
+
+                    <span class="quantity-text">
+                        1
+                    </span>
+
+                    <button class="quantity-btn plus-btn">
+                        +
+                    </button>
+
+                </div>
+
+            </div>
+        </div>
+
+    </section>
 
     </main>
 
-    <!-- PAGE JS -->
+        <!-- =========================
+            CART BUTTON
+        ========================= -->
+
+        <button
+            class="cart-toggle"
+            onclick="toggleCart()"
+        >
+            &lt; CART
+        </button>
+
+        <!-- =========================
+            SIDEBAR CART
+        ========================= -->
+
+        <div
+            class="cart-sidebar"
+            id="cartSidebar"
+        >
+
+            <!-- HEADER -->
+
+            <div class="cart-header">
+
+                <h2>
+                    CART
+                </h2>
+
+                <button
+                    class="close-cart"
+                    onclick="toggleCart()"
+                >
+                    ✕
+                </button>
+
+            </div>
+
+            <!-- CART ITEMS -->
+
+            <div id="cartItems">
+
+            </div>
+
+            <!-- FOOTER -->
+
+            <div class="cart-footer">
+
+                <div class="cart-total-row">
+
+                    <span>
+                        TOTAL
+                    </span>
+
+                    <span id="cartTotal">
+                        ₹0
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    <!-- RANKS JS -->
     <script src="assets/js/money.js"></script>
 
 </body>
