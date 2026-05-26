@@ -573,5 +573,48 @@ body::after {
 
     }
 
-    
+    .cart-controls {
+
+    width: 100%;
+
+    overflow: hidden;
+
+    }
+
+    .quantity-controls {
+
+        gap: 10px;
+
+        width: 100%;
+
+    }
+
+    .quantity-btn {
+
+        width: 32px;
+        height: 32px;
+
+        font-size: 1rem;
+
+        flex-shrink: 0;
+
+    }
+
+    .quantity-text {
+
+        font-size: 1rem;
+
+        min-width: 12px;
+
+    }
+
+    .add-button {
+
+        width: 100%;
+
+        font-size: 0.9rem;
+
+        padding: 10px;
+
+    }
 }
