@@ -77,7 +77,7 @@ function updateCartUI() {
 ========================= */
 
 function increaseCartQuantity(index) {
-    if (cart[index].type === "rank") return; // No multiple ranks
+    if (cart[index].type === "rank") return;
     cart[index].quantity++;
     cart[index].total = cart[index].quantity * cart[index].price;
     updateCartUI();
@@ -121,7 +121,6 @@ function syncPageControls() {
         const cartItem = cart.find(c => c.id === itemId);
         
         if (itemType === "rank") {
-            // RANKS: Show "ADDED" or "ADD"
             if (cartItem) {
                 addButtons[index].innerText = "ADDED";
                 addButtons[index].classList.add("added");
@@ -132,7 +131,6 @@ function syncPageControls() {
                 addButtons[index].disabled = false;
             }
         } else {
-            // KEYS/KITS/MONEY: Show - quantity +
             if (cartItem) {
                 addButtons[index].style.display = "none";
                 quantityControls[index].classList.add("active");
@@ -146,14 +144,6 @@ function syncPageControls() {
 }
 
 /* =========================
-   FIND CART ITEM
-========================= */
-
-function findCartItem(itemId) {
-    return cart.find(item => item.id === itemId);
-}
-
-/* =========================
    ADD BUTTON CLICK
 ========================= */
 
@@ -162,7 +152,6 @@ addButtons.forEach((button, index) => {
         const item = products[index];
         
         if (itemType === "rank") {
-            // RANKS: Add once, show "ADDED"
             cart.push({
                 id: item.name.toLowerCase().replace(/\s+/g, "-"),
                 name: item.name,
@@ -175,7 +164,6 @@ addButtons.forEach((button, index) => {
             button.classList.add("added");
             button.disabled = true;
         } else {
-            // KEYS/KITS/MONEY: Show quantity controls
             button.style.display = "none";
             quantityControls[index].classList.add("active");
             quantityTexts[index].textContent = 1;
@@ -257,7 +245,6 @@ window.addEventListener("storage", () => {
    MODAL ELEMENTS
 ========================= */
 
-const checkoutOptionsModal = document.getElementById("checkoutOptionsModal");
 const paymentModal = document.getElementById("paymentModal");
 const closeModal = document.getElementById("closeModal");
 const upiQrImage = document.getElementById("upiQrImage");
@@ -277,32 +264,64 @@ function checkout() {
     let total = 0;
     cart.forEach(item => total += item.total);
     
-    paymentModal.classList.add("active");
-    upiAmount.textContent = `₹${total}`;
-    upiIdText.textContent = upiId;
-    
-    let itemNames = "";
-    cart.forEach(item => itemNames += `${item.quantity}x ${item.name}, `);
-    itemNames = itemNames.slice(0, -2);
-    
-    const upiLink = `upi://pay?pa=${upiId}&pn=WizardMC&am=${total}&cu=INR&tn=${encodeURIComponent(itemNames)}`;
-    upiQrImage.src = `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${encodeURIComponent(upiLink)}`;
+    if (paymentModal) {
+        paymentModal.classList.add("active");
+        upiAmount.textContent = `₹${total}`;
+        upiIdText.textContent = upiId;
+        
+        let itemNames = "";
+        cart.forEach(item => itemNames += `${item.quantity}x ${item.name}, `);
+        itemNames = itemNames.slice(0, -2);
+        
+        const upiLink = `upi://pay?pa=${upiId}&pn=WizardMC&am=${total}&cu=INR&tn=${encodeURIComponent(itemNames)}`;
+        upiQrImage.src = `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${encodeURIComponent(upiLink)}`;
+    }
 }
 
 /* =========================
    CLOSE MODALS
 ========================= */
 
-closeModal.addEventListener("click", () => {
-    paymentModal.classList.remove("active");
+if (closeModal) {
+    closeModal.addEventListener("click", () => {
+        if (paymentModal) paymentModal.classList.remove("active");
+    });
+}
+
+if (paymentModal) {
+    paymentModal.addEventListener("click", (e) => {
+        if (e.target === paymentModal) paymentModal.classList.remove("active");
+    });
+}
+
+/* =========================
+   CART CLOSE EVENTS
+========================= */
+
+// Close cart on Escape key
+document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+        const sidebar = document.getElementById("cartSidebar");
+        
+        if (sidebar && sidebar.classList.contains("active")) {
+            sidebar.classList.remove("active");
+        }
+        if (paymentModal && paymentModal.classList.contains("active")) {
+            paymentModal.classList.remove("active");
+        }
+    }
 });
 
-paymentModal.addEventListener("click", (e) => {
-    if (e.target === paymentModal) paymentModal.classList.remove("active");
-});
-
-checkoutOptionsModal.addEventListener("click", (e) => {
-    if (e.target === checkoutOptionsModal) checkoutOptionsModal.classList.remove("active");
+// Close cart sidebar on outside click
+document.addEventListener("click", (e) => {
+    const sidebar = document.getElementById("cartSidebar");
+    const cartToggle = document.querySelector(".cart-toggle");
+    
+    if (sidebar && sidebar.classList.contains("active")) {
+        if (!sidebar.contains(e.target) && !cartToggle.contains(e.target)) {
+            sidebar.classList.remove("active");
+        }
+    }
 });
 
 /* =========================
@@ -311,7 +330,9 @@ checkoutOptionsModal.addEventListener("click", (e) => {
 
 function showToast(message) {
     const toast = document.getElementById("toast");
-    toast.textContent = message;
-    toast.classList.add("show");
-    setTimeout(() => toast.classList.remove("show"), 2500);
+    if (toast) {
+        toast.textContent = message;
+        toast.classList.add("show");
+        setTimeout(() => toast.classList.remove("show"), 2500);
+    }
 }

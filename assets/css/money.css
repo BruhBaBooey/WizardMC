@@ -185,12 +185,14 @@ body::after {
     .back-button {
         top: 25px;
         left: 25px;
-        width: 46px;
+        width: 62px;
         height: auto;
-        padding-top: 3px;
-        padding-bottom: 3px;
-        font-size: 0.8rem;
+        padding-top: 5px;
+        padding-bottom: 0px;
+        padding-right: 2px;
+        font-size: 1.3rem;
         border-radius: 4px;
+        letter-spacing: 1px;
     }
 
     .ranks-title { font-size: clamp(3rem, 12vw, 5rem); }
