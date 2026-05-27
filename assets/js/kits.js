@@ -23,6 +23,10 @@ const upiId =
 
 const ranks = [
     {
+        name: "Dragon Kit",
+        price: 220
+    },
+    {
         name: "Arcane Kit",
         price: 50
     },
@@ -37,10 +41,6 @@ const ranks = [
     {
         name: "Immortal Kit",
         price: 160
-    },
-    {
-        name: "Dragon Kit",
-        price: 220
     }
 ];
 

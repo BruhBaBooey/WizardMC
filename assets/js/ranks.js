@@ -31,6 +31,10 @@ localStorage.getItem(CART_STORAGE_KEY)
 
 const ranks = [
     {
+        name: "Dragon",
+        price: 220
+    },
+    {
         name: "Arcane",
         price: 50
     },
@@ -45,10 +49,6 @@ const ranks = [
     {
         name: "Immortal",
         price: 160
-    },
-    {
-        name: "Dragon",
-        price: 220
     }
 ];
 

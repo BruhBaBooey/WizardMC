@@ -23,24 +23,24 @@ const upiId =
 
 const ranks = [
     {
-        name: "Arcane Key",
-        price: 50
+        name: "Dragon Key",
+        price: 220
     },
     {
         name: "Warlord Key",
-        price: 80
+        price: 50
     },
     {
         name: "Celestial Key",
-        price: 120
+        price: 80
     },
     {
         name: "Immortal Key",
-        price: 160
+        price: 120
     },
     {
-        name: "Dragon Key",
-        price: 220
+        name: "Arcane Key",
+        price: 160
     }
 ];
 
