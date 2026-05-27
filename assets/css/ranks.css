@@ -1,39 +1,18 @@
-body {
-
-    overflow-x: hidden;
-
-}
+body { overflow-x: hidden; }
 
 /* =========================
    OBSIDIAN BORDER
 ========================= */
 
 body::after {
-
     content: "";
-
     position: absolute;
-
-    top: 0;
-    left: 0;
-
-    right: 0;
-    bottom: 0;
-
+    top: 0; left: 0; right: 0; bottom: 0;
     pointer-events: none;
-
     z-index: 999;
-
-    /*
-        DESKTOP BORDER SIZE
-    */
     border: 21px solid transparent;
-
-    border-image:
-    url('../images/obsidian-border.png') 127 round;
-
+    border-image: url('../images/obsidian-border.png') 127 round;
     opacity: 0.95;
-
 }
 
 /* =========================
@@ -41,47 +20,22 @@ body::after {
 ========================= */
 
 .ranks-container {
-
     text-align: center;
-
     padding-top: 60px;
-
     padding-bottom: 60px;
-
 }
 
-/* =========================
-   PAGE TITLE SECTION
-========================= */
-
-.ranks-header {
-
-    margin-bottom: 70px;
-
-}
-
-/* =========================
-   RANKS TITLE
-========================= */
+.ranks-header { margin-bottom: 70px; }
 
 .ranks-title {
-
-    /*
-        CHANGE TITLE SIZE HERE
-    */
     font-size: clamp(3rem, 8vw, 7rem);
-
     color: var(--primary-color);
-
     letter-spacing: 8px;
-    
-    /* MAGIC GLOW EFFECT CHANGE COLORS/STRENGTH HERE */
-
     text-shadow:
-    0 0 2px rgba(255, 255, 255, 0.8),
-    0 0 4px rgba(192, 132, 252, 0.9),
-    0 0 8px rgba(155, 92, 255, 0.8),
-    0 0 0px rgba(96, 165, 250, 0.5);
+        0 0 2px rgba(255, 255, 255, 0.8),
+        0 0 4px rgba(192, 132, 252, 0.9),
+        0 0 8px rgba(155, 92, 255, 0.8),
+        0 0 0px rgba(96, 165, 250, 0.5);
 }
 
 /* =========================
@@ -89,324 +43,138 @@ body::after {
 ========================= */
 
 .ranks-grid {
-
     display: grid;
-
-    /*
-        2 COLUMN DESKTOP GRID
-    */
     grid-template-columns: repeat(2, 1fr);
-
     gap: 40px;
-
     justify-items: center;
-
 }
-
-/* =========================
-   RANK CARD
-========================= */
 
 .rank-card {
-
     width: 100%;
-
     max-width: 420px;
-
-    /*
-        MORE HEIGHT FOR RANK IMAGE
-    */
     padding: 25px 20px 35px;
-
     border-radius: 24px;
-
     background: rgba(25, 10, 45, 0.65);
-
-    /*
-        SLIMMER BORDER
-    */
     border: 1.5px solid rgba(255, 255, 255, 0.08);
-
     backdrop-filter: blur(8px);
-
     transition: 0.3s ease;
-
-    box-shadow:
-    0 0 15px rgba(155, 92, 255, 0.15);
-
+    box-shadow: 0 0 15px rgba(155, 92, 255, 0.15);
 }
-
-/* =========================
-   RANK IMAGE
-========================= */
 
 .rank-image {
-
     width: 100%;
-
     max-width: 260px;
-
     margin-bottom: 25px;
-
     image-rendering: pixelated;
-
-    filter:
-    drop-shadow(0 0 10px rgba(155, 92, 255, 0.35));
-
+    filter: drop-shadow(0 0 10px rgba(155, 92, 255, 0.35));
 }
-
-/* =========================
-   CARD HOVER
-========================= */
 
 .rank-card:hover {
-
     transform: translateY(-8px);
-
     border-color: rgba(192, 132, 252, 0.5);
-
-    box-shadow:
-    0 0 20px rgba(192, 132, 252, 0.25);
-
+    box-shadow: 0 0 20px rgba(192, 132, 252, 0.25);
 }
-
-/* =========================
-   RANK NAME
-========================= */
-
-.rank-name {
-
-    font-size: clamp(2rem, 4vw, 3.5rem);
-
-    margin-bottom: 20px;
-
-}
-
-/* =========================
-   RANK PRICE
-========================= */
 
 .rank-price {
-
     font-size: clamp(1.5rem, 3vw, 2.5rem);
-
     color: var(--secondary-color);
-
 }
-
-/* =========================
-   CENTER LAST CARD
-========================= */
 
 .dragon-rank {
-
     grid-column: 1 / -1;
-
     justify-self: center;
-
 }
-
-/* =========================
-   PAYMENT MODAL
-========================= */
-
-
 
 /* =========================
    BACK BUTTON
 ========================= */
 
 .back-button {
-
     position: absolute;
-
-    /*
-        POSITION
-    */
     top: 40px;
     left: 40px;
-
-    /*
-        SIZE
-    */
     width: 87px;
     height: 40px;
-
     display: flex;
-
     justify-content: center;
     align-items: center;
-
-    /*
-        PERFECT TEXT CENTERING
-    */
     line-height: 1;
-
-    /*
-        REMOVE WEIRD TEXT OFFSET
-    */
     padding-top: 5px;
-
     padding-left: 5px;
-
     background: rgba(25, 10, 45, 0.85);
-
     color: white;
-
     border-radius: 7px;
-
     font-size: 1.4rem;
-
     letter-spacing: 3px;
-
     text-decoration: none;
-
     backdrop-filter: blur(8px);
-
     z-index: 5000;
-
     transition: 0.25s ease;
-
-
 }
 
-/* =========================
-   HOVER EFFECT
-========================= */
-
 .back-button:hover {
-
     transform: translateX(-4px);
-
     color: white;
-
     text-shadow:
-    0 0 2px rgba(255, 255, 255, 1),
-    0 0 2px rgba(192, 132, 252, 1),
-    0 0 3px rgba(155, 92, 255, 1);
-
+        0 0 2px rgba(255, 255, 255, 1),
+        0 0 2px rgba(192, 132, 252, 1),
+        0 0 3px rgba(155, 92, 255, 1);
 }
 
 /* =========================
    CART CONTROLS
 ========================= */
 
-.cart-controls {
-
-    margin-top: 20px;
-
-}
-
-/* =========================
-   ADD BUTTON
-========================= */
+.cart-controls { margin-top: 20px; }
 
 .add-button {
-
     width: 100%;
-
     padding: 14px;
-
     border: none;
-
     border-radius: 12px;
-
     background: rgba(155, 92, 255, 0.85);
-
     color: white;
-
     font-family: 'Minecraft', Arial, sans-serif;
-
     font-size: 1rem;
-
     cursor: pointer;
-
     transition: 0.2s ease;
-
 }
 
 .add-button:hover {
-
     transform: scale(1.03);
-
-    box-shadow:
-    0 0 15px rgba(192, 132, 252, 0.35);
-
+    box-shadow: 0 0 15px rgba(192, 132, 252, 0.35);
 }
-
-/* =========================
-   ADDED STATE
-========================= */
 
 .add-button.added {
-
     background: rgba(80, 200, 120, 0.85);
-
 }
-
-/* =========================
-   QUANTITY CONTROLS
-========================= */
 
 .quantity-controls {
-
     display: none;
-
     align-items: center;
-
     justify-content: center;
-
     gap: 20px;
-
     margin-top: 10px;
-
 }
 
-/* SHOW */
-
-.quantity-controls.active {
-
-    display: flex;
-
-}
-
-/* =========================
-   PLUS MINUS BUTTONS
-========================= */
+.quantity-controls.active { display: flex; }
 
 .quantity-btn {
-
     width: 40px;
     height: 40px;
-
     border: none;
-
     border-radius: 10px;
-
     background: rgba(155, 92, 255, 0.85);
-
     color: white;
-
     font-size: 1.3rem;
-
     cursor: pointer;
-
     font-family: 'Minecraft', Arial, sans-serif;
-
 }
 
-/* =========================
-   QUANTITY TEXT
-========================= */
-
 .quantity-text {
-
     font-size: 1.2rem;
-
     min-width: 20px;
-
     text-align: center;
-
 }
 
 /* =========================
@@ -414,590 +182,24 @@ body::after {
 ========================= */
 
 @media (max-width: 768px) {
-
     .back-button {
-
         top: 25px;
         left: 25px;
-
-        /*
-            AUTO FIT TEXT
-        */
         width: 46px;
         height: auto;
-
-        /*
-            SPACE AROUND TEXT
-        */
-        
         padding-top: 3px;
-        padding-bottom: px;
-
+        padding-bottom: 3px;
         font-size: 0.8rem;
-
         border-radius: 4px;
-
     }
 
-    .ranks-title {
-
-        font-size: clamp(3rem, 12vw, 5rem);
-
-    }
-
-    .ranks-grid {
-
-        gap: 20px;
-
-    }
-
-    .rank-card {
-
-        padding: 25px 15px;
-
-    }
-
-    .rank-name {
-
-        font-size: clamp(1.8rem, 7vw, 2.5rem);
-
-    }
-
-    .rank-price {
-
-        font-size: clamp(1.2rem, 5vw, 2rem);
-
-    }
+    .ranks-title { font-size: clamp(3rem, 12vw, 5rem); }
+    .ranks-grid { gap: 20px; }
+    .rank-card { padding: 25px 15px; }
+    .rank-price { font-size: clamp(1.2rem, 5vw, 2rem); }
 
     body::after {
-
         border: 16px solid transparent;
-
-        border-image:
-        url('../images/obsidian-border.png') 127 round;
-
+        border-image: url('../images/obsidian-border.png') 127 round;
     }
-
-    
-}
-
-/* =========================
-   CART BUTTON
-========================= */
-
-.cart-toggle {
-
-    position: fixed;
-
-    top: 40px;
-    right: 40px;
-
-    z-index: 6000;
-
-    width: 120px;
-    height: 45px;
-
-    border: none;
-
-    border-radius: 10px;
-
-    background:
-    rgba(25, 10, 45, 0.92);
-
-    color: white;
-
-    font-family: 'Minecraft', Arial, sans-serif;
-
-    font-size: 1rem;
-
-    cursor: pointer;
-
-    backdrop-filter: blur(8px);
-
-    transition: 0.25s ease;
-
-}
-
-.cart-toggle:hover {
-
-    transform: translateX(-3px);
-
-}
-
-/* =========================
-   SIDEBAR
-========================= */
-
-.cart-sidebar {
-
-    position: fixed;
-
-    top: 0;
-    right: -450px;
-
-    width: 420px;
-    max-width: 100%;
-
-    height: 100vh;
-
-    background:
-    rgba(18, 8, 35, 0.98);
-
-    backdrop-filter: blur(12px);
-
-    border-left:
-    2px solid rgba(192, 132, 252, 0.25);
-
-    z-index: 7000;
-
-    transition: right 0.35s ease;
-
-    display: flex;
-
-    flex-direction: column;
-
-}
-
-/* ACTIVE */
-
-.cart-sidebar.active {
-
-    right: 0;
-
-}
-
-/* =========================
-   HEADER
-========================= */
-
-.cart-header {
-
-    display: flex;
-
-    justify-content: space-between;
-
-    align-items: center;
-
-    padding: 24px;
-
-    border-bottom:
-    1px solid rgba(255,255,255,0.08);
-
-}
-
-.cart-header h2 {
-
-    color: white;
-
-    font-size: 2rem;
-
-}
-
-/* =========================
-   CLOSE BUTTON
-========================= */
-
-.close-cart {
-
-    background: none;
-
-    border: none;
-
-    color: white;
-
-    font-size: 1.7rem;
-
-    cursor: pointer;
-
-}
-
-/* =========================
-   CART ITEMS
-========================= */
-
-#cartItems {
-
-    flex: 1;
-
-    overflow-y: auto;
-
-    padding: 20px;
-
-}
-
-/* =========================
-   SINGLE ITEM
-========================= */
-
-.cart-item {
-
-    padding: 18px 0;
-
-    border-bottom:
-    1px solid rgba(255,255,255,0.08);
-
-}
-
-/* =========================
-   TOP ROW
-========================= */
-
-.cart-item-top {
-
-    display: flex;
-
-    justify-content: space-between;
-
-    align-items: center;
-
-    margin-bottom: 12px;
-
-}
-
-/* PRODUCT NAME */
-
-.cart-item-name {
-
-    color: white;
-
-    font-size: 1rem;
-
-}
-
-/* PRICE */
-
-.cart-item-price {
-
-    color: white;
-
-    font-size: 1rem;
-
-}
-
-/* =========================
-   BOTTOM ROW
-========================= */
-
-.cart-item-bottom {
-
-    display: flex;
-
-    justify-content: space-between;
-
-    align-items: center;
-
-}
-
-/* TYPE */
-
-.cart-item-type {
-
-    color: #b892ff;
-
-    font-size: 0.85rem;
-
-    text-transform: uppercase;
-
-}
-
-/* =========================
-   QUANTITY
-========================= */
-
-.cart-quantity {
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 12px;
-
-}
-
-/* BUTTONS */
-
-.cart-quantity button {
-
-    width: 28px;
-    height: 28px;
-
-    border: none;
-
-    border-radius: 7px;
-
-    background:
-    rgba(155, 92, 255, 0.22);
-
-    color: white;
-
-    font-family: 'Minecraft', Arial, sans-serif;
-
-    cursor: pointer;
-
-}
-
-/* =========================
-   FOOTER
-========================= */
-
-.cart-footer {
-
-    padding: 24px;
-
-    border-top:
-    1px solid rgba(255,255,255,0.08);
-
-}
-
-/* TOTAL */
-
-.cart-total-row {
-
-    display: flex;
-
-    justify-content: space-between;
-
-    color: white;
-
-    font-size: 1.2rem;
-
-}
-
-/* =========================
-   MOBILE
-========================= */
-
-@media (max-width: 768px) {
-
-    .cart-sidebar {
-
-        width: 100%;
-
-    }
-
-    .cart-toggle {
-
-        top: 25px;
-        right: 25px;
-
-        width: 95px;
-        height: 40px;
-
-        font-size: 0.8rem;
-
-    }
-
-}
-
-/* =========================
-   CHECKOUT BUTTON
-========================= */
-
-.checkout-btn {
-
-    width: 100%;
-
-    margin-top: 20px;
-
-    padding: 16px;
-
-    border: none;
-
-    border-radius: 14px;
-
-    background:
-    linear-gradient(
-        135deg,
-        #9b5cff,
-        #7c3aed
-    );
-
-    color: white;
-
-    font-size: 1rem;
-
-    font-family:
-    'Minecraft',
-    Arial,
-    sans-serif;
-
-    cursor: pointer;
-
-    transition: 0.25s ease;
-
-}
-
-.checkout-btn:hover {
-
-    transform: scale(1.02);
-
-    box-shadow:
-    0 0 20px rgba(155, 92, 255, 0.4);
-
-}
-
-/* =========================
-   PAYMENT MODAL
-========================= */
-
-.payment-modal {
-
-    position: fixed;
-
-    inset: 0;
-
-    background: rgba(0, 0, 0, 0.7);
-
-    display: none;
-
-    justify-content: center;
-
-    align-items: center;
-
-    z-index: 9000;
-
-}
-
-/* SHOW */
-
-.payment-modal.active {
-
-    display: flex;
-
-}
-
-/* =========================
-   PAYMENT BOX
-========================= */
-
-.payment-box {
-
-    width: 90%;
-
-    max-width: 500px;
-
-    padding: 35px 25px;
-
-    border-radius: 24px;
-
-    background:
-    rgba(20, 10, 35, 0.96);
-
-    border:
-    2px solid rgba(192, 132, 252, 0.3);
-
-    text-align: center;
-
-}
-
-/* =========================
-   QR IMAGE
-========================= */
-
-.upi-qr {
-
-    width: 240px;
-
-    max-width: 100%;
-
-    margin-top: 20px;
-
-    margin-bottom: 20px;
-
-    padding: 10px;
-
-    background: white;
-
-    border-radius: 16px;
-
-}
-
-/* =========================
-   UPI ID
-========================= */
-
-.upi-id {
-
-    color: #ccc;
-
-    font-size: 0.9rem;
-
-    word-break: break-word;
-
-}
-
-/* =========================
-   CLOSE BUTTON
-========================= */
-
-.close-button {
-
-    margin-top: 25px;
-
-    padding: 12px 20px;
-
-    border: none;
-
-    border-radius: 12px;
-
-    background: #7c3aed;
-
-    color: white;
-
-    font-family: 'Minecraft', Arial, sans-serif;
-
-    cursor: pointer;
-
-}
-
-/* =========================
-   TOAST
-========================= */
-
-#toast {
-
-    position: fixed;
-
-    bottom: 30px;
-    left: 50%;
-
-    transform:
-    translateX(-50%)
-    translateY(100px);
-
-    background:
-    rgba(20, 10, 35, 0.96);
-
-    color: white;
-
-    padding: 14px 22px;
-
-    border-radius: 12px;
-
-    border:
-    1px solid rgba(192, 132, 252, 0.35);
-
-    font-size: 0.9rem;
-
-    z-index: 10000;
-
-    opacity: 0;
-
-    pointer-events: none;
-
-    transition:
-    0.35s ease;
-
-}
-
-/* SHOW */
-
-#toast.show {
-
-    opacity: 1;
-
-    transform:
-    translateX(-50%)
-    translateY(0);
-
 }
