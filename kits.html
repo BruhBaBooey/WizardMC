@@ -78,6 +78,16 @@
         </section>
     </main>
 
+    <!-- =========================
+        LOGIN BUTTON
+    ========================= -->
+
+    <button class="login-btn-top" id="loginBtn" onclick="showLogin()">LOGIN</button>
+
+    <!-- =========================
+        CART BUTTON
+    ========================= -->
+
     <button class="cart-toggle" onclick="toggleCart()">CART</button>
 
     <div class="cart-sidebar" id="cartSidebar">
@@ -105,8 +115,46 @@
         </div>
     </div>
 
-    <div id="toast">Your cart is empty</div>
+    <!-- =========================
+        LOGIN MODAL
+    ========================= -->
 
+    <div class="login-modal" id="loginModal">
+        <div class="login-box">
+            <h2 class="minecraft-glow">LOGIN</h2>
+            <input type="text" id="ignInput" class="login-input" placeholder="MC Username" autocomplete="off">
+            
+            <!-- CUSTOM VERSION DROPDOWN -->
+            <div class="custom-select" id="versionSelect">
+                <div class="custom-select-trigger">Version</div>
+                <div class="custom-select-options">
+                    <div class="custom-select-option selected" data-value="java">Java Edition</div>
+                    <div class="custom-select-option" data-value="bedrock">Bedrock/PE</div>
+                </div>
+            </div>
+            
+            <input type="text" id="discordInput" class="login-input" placeholder="Discord Username" autocomplete="off">
+            <button class="login-submit-btn" id="signinBtn">SIGN IN</button>
+        </div>
+    </div>
+
+    <!-- =========================
+        LOGOUT MODAL
+    ========================= -->
+
+    <div class="logout-modal" id="logoutModal">
+        <div class="logout-box">
+            <h2 class="minecraft-glow">LOGOUT</h2>
+            <p class="logout-text">Would you like to logout?</p>
+            <div class="logout-buttons">
+                <button class="logout-confirm-btn" id="logoutBtn">LOGOUT</button>
+                <button class="logout-cancel-btn" id="logoutCancelBtn">CANCEL</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="toast">Your cart is empty</div>
+    
     <!-- PAGE CONFIG FIRST -->
     <script src="assets/js/kits.js"></script>
 

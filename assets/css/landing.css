@@ -3,40 +3,17 @@
 ========================= */
 
 body::after {
-
     content: "";
-
     position: absolute;
-
     top: 0;
     left: 0;
-
     right: 0;
-
-    /*
-        MAKES BORDER FOLLOW PAGE HEIGHT
-    */
     bottom: 0;
-
     pointer-events: none;
-
     z-index: 999;
-
-    /*
-        CHANGE BORDER THICKNESS HERE
-    */
     border: 28px solid transparent;
-
-    /*
-        CHANGE BORDER IMAGE HERE
-    */
     border-image: url('../images/obsidian-border.png') 127 round;
-
-    /*
-        CHANGE BORDER VISIBILITY HERE
-    */
     opacity: 0.95;
-
 }
 
 /* =========================
@@ -44,9 +21,7 @@ body::after {
 ========================= */
 
 .landing-container {
-
     text-align: center;
-
 }
 
 /* =========================
@@ -54,9 +29,7 @@ body::after {
 ========================= */
 
 .hero-section {
-
     margin-bottom: 30px;
-
 }
 
 /* =========================
@@ -64,28 +37,17 @@ body::after {
 ========================= */
 
 .server-title {
-
-    /* CHANGE TITLE SIZE HERE */
     font-size: clamp(3rem, 8vw, 8rem);
-
     font-weight: bold;
-
     color: var(--primary-color);
-
     margin-top: 30px;
-
     margin-bottom: 30px;
-
     word-break: break-word;
-
-    /* MAGIC GLOW EFFECT CHANGE COLORS/STRENGTH HERE */
-
     text-shadow:
-    0 0 2px rgba(255, 255, 255, 0.8),
-    0 0 4px rgba(192, 132, 252, 0.9),
-    0 0 8px rgba(155, 92, 255, 0.8),
-    0 0 0px rgba(96, 165, 250, 0.5);
-
+        0 0 2px rgba(255, 255, 255, 0.8),
+        0 0 4px rgba(192, 132, 252, 0.9),
+        0 0 8px rgba(155, 92, 255, 0.8),
+        0 0 0px rgba(96, 165, 250, 0.5);
 }
 
 /* =========================
@@ -93,14 +55,10 @@ body::after {
 ========================= */
 
 .server-info {
-
     display: flex;
     flex-direction: column;
-
     gap: 15px;
-
     font-size: clamp(1rem, 2vw, 2rem);
-
 }
 
 /* =========================
@@ -108,9 +66,7 @@ body::after {
 ========================= */
 
 .store-section {
-
     margin-bottom: 50px;
-
 }
 
 /* =========================
@@ -118,24 +74,9 @@ body::after {
 ========================= */
 
 .store-grid {
-
     display: grid;
-
-    /*
-        CHANGE GRID LAYOUT HERE
-
-        repeat(2, 1fr)
-        = 2 columns
-
-        You can change it later to:
-        repeat(3, 1fr)
-        etc
-    */
-
     grid-template-columns: repeat(2, 1fr);
-
     gap: 10px;
-
 }
 
 /* =========================
@@ -143,23 +84,15 @@ body::after {
 ========================= */
 
 .store-card {
-
     background: transparent;
-
     border-radius: 20px;
-
     padding: 40px 20px;
-
     transition: 0.3s ease;
-
 }
 
 .store-card:hover {
-
     transform: translateY(-5px);
-
     border-color: var(--secondary-color);
-
 }
 
 /* =========================
@@ -167,9 +100,7 @@ body::after {
 ========================= */
 
 .store-card h2 {
-
     margin-bottom: 25px;
-
     font-size: clamp(2.5rem, 4vw, 4rem);
 }
 
@@ -178,75 +109,31 @@ body::after {
 ========================= */
 
 .store-button {
-
     display: inline-block;
-
     background: var(--primary-color);
-
     color: white;
-
     padding: 8px 55px;
-
     border-radius: 12px;
-
     font-size: 2.5rem;
-
     font-weight: bold;
-
     transition: 0.3s ease;
-
     letter-spacing: 3px;
-
-    /*
-    BETTER MOBILE TAPPING
-    */
     -webkit-tap-highlight-color: transparent;
-
     touch-action: manipulation;
-
     user-select: none;
-
-    /*
-    BUTTON BORDER
-    */
     border: 4px solid rgba(255, 255, 255, 0.15);
-
-    /*
-        SUBTLE DEPTH
-    */
-    box-shadow:
-    0 4px 0 rgba(0, 0, 0, 0.4),
-    0 0 10px rgba(155, 92, 255, 0.2);
+    box-shadow: 0 4px 0 rgba(0, 0, 0, 0.4), 0 0 10px rgba(155, 92, 255, 0.2);
 }
-
-/* BUTTON HOVER EFFECT */
 
 .store-button:hover {
-
     background: var(--hover-color);
-
     transform: scale(1.05);
-
-    /*
-    STRONGER HOVER GLOW
-    */
-    box-shadow:
-    0 2px 0 rgba(0, 0, 0, 0.4),
-    0 0 12px rgba(192, 132, 252, 0.4);
-
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.4), 0 0 12px rgba(192, 132, 252, 0.4);
 }
 
-/* =========================
-   BUTTON PRESS EFFECT
-========================= */
-
 .store-button:active {
-
     transform: translateY(4px);
-
-    box-shadow:
-    0 0 5px rgba(192, 132, 252, 0.3);
-
+    box-shadow: 0 0 5px rgba(192, 132, 252, 0.3);
 }
 
 /* =========================
@@ -254,13 +141,9 @@ body::after {
 ========================= */
 
 .support-section {
-
     display: flex;
-
     flex-direction: column;
-
     gap: 20px;
-
 }
 
 /* =========================
@@ -268,11 +151,8 @@ body::after {
 ========================= */
 
 .support-text {
-
     font-size: 1.7rem;
-
     font-weight: bold;
-
     letter-spacing: 5px;
 }
 
@@ -281,22 +161,14 @@ body::after {
 ========================= */
 
 .discord-link {
-
     color: var(--secondary-color);
-
     font-size: 1.5rem;
-
     font-weight: bold;
-
 }
 
 .discord-link:hover {
-
     color: var(--secondary-color);
-
-    text-shadow:
-    0 0 5px rgba(192, 132, 252, 0.8);
-
+    text-shadow: 0 0 5px rgba(192, 132, 252, 0.8);
 }
 
 /* =========================
@@ -304,12 +176,10 @@ body::after {
 ========================= */
 
 .minecraft-glow {
-
     text-shadow:
-    0 0 5px rgba(255, 255, 255, 0.7),
-    0 0 5px rgba(192, 132, 252, 0.8),
-    0 0 15px rgba(155, 92, 255, 0.8);
-
+        0 0 5px rgba(255, 255, 255, 0.7),
+        0 0 5px rgba(192, 132, 252, 0.8),
+        0 0 15px rgba(155, 92, 255, 0.8);
 }
 
 /* =========================
@@ -317,22 +187,338 @@ body::after {
 ========================= */
 
 .copy-text {
-
     cursor: pointer;
-
     transition: 0.2s ease;
-
     display: inline-block;
-
 }
 
 .copy-text:hover {
-
     color: var(--secondary-color);
+    text-shadow: 0 0 5px rgba(192, 132, 252, 0.8);
+}
 
+/* =========================
+   LOGIN BUTTON (TOP RIGHT)
+========================= */
+
+.login-btn-top {
+    position: absolute;
+    top: 46px;
+    right: 45px;
+    width: 105px;
+    height: 35px;
+    padding-top: 5px;
+    padding-left: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(25, 10, 45, 0.85);
+    color: white;
+    border-radius: 7px;
+    font-family: 'Minecraft', Arial, sans-serif;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    text-decoration: none;
+    backdrop-filter: blur(8px);
+    z-index: 5000;
+    transition: 0.25s ease;
+    cursor: pointer;
+    border: none;
+}
+
+.login-btn-top:hover {
+    transform: translateX(-4px);
+    color: white;
     text-shadow:
-    0 0 5px rgba(192, 132, 252, 0.8);
+        0 0 2px rgba(255, 255, 255, 1),
+        0 0 2px rgba(192, 132, 252, 1),
+        0 0 3px rgba(155, 92, 255, 1);
+}
 
+/* Logged in - no background */
+.login-btn-top.logged-in {
+    background: transparent;
+    backdrop-filter: none;
+    width: auto;
+    min-width: 80px;
+    padding: 0 5px;
+    white-space: nowrap;
+}
+
+/* =========================
+   LOGIN MODAL
+========================= */
+
+.login-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9000;
+}
+
+.login-modal.active {
+    display: flex;
+}
+
+.login-box {
+    width: 90%;
+    max-width: 400px;
+    padding: 30px;
+    border-radius: 20px;
+    background: rgba(20, 10, 35, 0.96);
+    border: 2px solid rgba(192, 132, 252, 0.3);
+    text-align: center;
+}
+
+.login-box h2 {
+    color: white;
+    font-size: 2rem;
+    margin-bottom: 25px;
+    text-shadow: 0 0 10px rgba(155, 92, 255, 0.5);
+}
+
+/* =========================
+   LOGIN INPUT FIELDS
+========================= */
+
+.login-input {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 12px;
+    border: none;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.08);
+    color: white;
+    font-family: 'Minecraft', Arial, sans-serif;
+    font-size: 1rem;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.login-input::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.login-input:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 0 0 2px rgba(155, 92, 255, 0.5);
+}
+
+/* =========================
+   CUSTOM SELECT (VERSION)
+========================= */
+
+.custom-select {
+    position: relative;
+    width: 100%;
+    margin-bottom: 12px;
+}
+
+.custom-select-trigger {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.08);
+    color: white;
+    font-family: 'Minecraft', Arial, sans-serif;
+    font-size: 1rem;
+    text-align: center;
+    cursor: pointer;
+    box-sizing: border-box;
+    transition: 0.2s ease;
+}
+
+.custom-select-trigger:hover,
+.custom-select.active .custom-select-trigger {
+    background: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 0 0 2px rgba(155, 92, 255, 0.5);
+}
+
+.custom-select-options {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    margin-top: 5px;
+    border-radius: 10px;
+    background: rgba(20, 10, 35, 0.96);
+    overflow: hidden;
+    display: none;
+    z-index: 10;
+}
+
+.custom-select.active .custom-select-options {
+    display: block;
+}
+
+.custom-select-option {
+    padding: 12px 14px;
+    color: rgba(255, 255, 255, 0.6);
+    font-family: 'Minecraft', Arial, sans-serif;
+    font-size: 1rem;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.custom-select-option:first-child {
+    border-radius: 8px 8px 0 0;
+    padding-top: 14px;
+}
+
+.custom-select-option:last-child {
+    border-radius: 0 0 8px 8px;
+    padding-bottom: 14px;
+}
+
+.custom-select-option:only-child {
+    border-radius: 8px;
+}
+
+.custom-select-option:hover {
+    background: rgba(155, 92, 255, 0.2);
+    color: white;
+}
+
+.custom-select-option.selected {
+    color: var(--secondary-color);
+    background: rgba(155, 92, 255, 0.15);
+}
+
+/* =========================
+   LOGIN SUBMIT BUTTON
+========================= */
+
+.login-submit-btn {
+    width: 100%;
+    padding: 14px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, rgba(155, 92, 255, 0.95), rgba(124, 58, 237, 0.95));
+    color: white;
+    font-family: 'Minecraft', Arial, sans-serif;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.login-submit-btn:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 20px rgba(155, 92, 255, 0.4);
+}
+
+/* =========================
+   LOGOUT MODAL
+========================= */
+
+.logout-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9000;
+}
+
+.logout-modal.active {
+    display: flex;
+}
+
+.logout-box {
+    width: 90%;
+    max-width: 350px;
+    padding: 30px;
+    border-radius: 20px;
+    background: rgba(20, 10, 35, 0.96);
+    border: 2px solid rgba(192, 132, 252, 0.3);
+    text-align: center;
+}
+
+.logout-box h2 {
+    color: white;
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    text-shadow: 0 0 10px rgba(155, 92, 255, 0.5);
+}
+
+.logout-text {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1rem;
+    margin-bottom: 25px;
+}
+
+.logout-buttons {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+}
+
+.logout-confirm-btn {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    color: white;
+    font-family: 'Minecraft', Arial, sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.logout-confirm-btn:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 15px rgba(239, 68, 68, 0.4);
+}
+
+.logout-cancel-btn {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-family: 'Minecraft', Arial, sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.logout-cancel-btn:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+/* =========================
+   TOAST
+========================= */
+
+#toast {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: rgba(20, 10, 35, 0.96);
+    color: white;
+    padding: 14px 22px;
+    border-radius: 12px;
+    border: 1px solid rgba(192, 132, 252, 0.35);
+    font-size: 0.9rem;
+    z-index: 10000;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.35s ease;
+}
+
+#toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
 }
 
 /* =========================
@@ -340,247 +526,104 @@ body::after {
 ========================= */
 
 @media (max-width: 768px) {
-
-    
-    /* =========================
-       GLOBAL MOBILE BORDER
-    ========================= */
-
     body::after {
-
-        /*
-            THINNER BORDER ON MOBILE
-        */
         border: 16px solid transparent;
-
-        /*
-            REQUIRED AGAIN
-            OR BORDER MAY DISAPPEAR
-        */
         border-image: url('../images/obsidian-border.png') 127 round;
-
     }
-
-    /* =========================
-       MAIN CONTAINER
-    ========================= */
 
     .landing-container {
-
         width: 80%;
-
-        /*
-            FULL SCREEN MOBILE LAYOUT
-        */
         min-height: 100vh;
-
         display: flex;
-
         flex-direction: column;
-
         justify-content: space-between;
-
         padding-top: 20px;
         padding-bottom: 20px;
-
     }
-
-    /* =========================
-       HERO SECTION
-    ========================= */
 
     .hero-section {
-
         margin-bottom: 10px;
-
     }
-
-        /* =========================
-       SERVER TITLE
-    ========================= */
 
     .server-title {
-
-        /*
-            SMALLER MOBILE TITLE
-        */
         font-size: clamp(2.5rem, 12vw, 6rem);
-
         margin-top: 60px;
-
         margin-bottom: 20px;
-
         line-height: 1.2;
-
     }
-
-    /* =========================
-       SERVER INFO
-    ========================= */
 
     .server-info {
-
         font-size: 0.9rem;
-
         gap: 10px;
-
     }
-
-    /* =========================
-       STORE SECTION
-    ========================= */
 
     .store-section {
-
         margin-bottom: 1px;
-
     }
-
-        /* =========================
-       STORE GRID
-    ========================= */
 
     .store-grid {
-
-        /*
-            2x2 MOBILE LAYOUT
-        */
         grid-template-columns: repeat(2, 1fr);
-
         gap: 2px;
-
     }
-
-    /* =========================
-       STORE CARD
-    ========================= */
 
     .store-card {
-
         padding: 18px 6px;
-
     }
-
-    /* =========================
-       CARD TITLES
-    ========================= */
 
     .store-card h2 {
-
         font-size: clamp(2rem, 8vw, 3rem);
-
         margin-bottom: 18px;
-
     }
-
-        /* =========================
-       BUTTONS
-    ========================= */
 
     .store-button {
-
-        /*
-            MOBILE BUTTON SIZE
-        */
         font-size: 1.5rem;
-
         padding: 10px 45px;
-
         letter-spacing: 2px;
-
         border-radius: 10px;
-
     }
 
-    /* =========================
-       SUPPORT SECTION
-    ========================= */
-
     .support-section {
-
         gap: 10px;
-
         padding-bottom: 90px;
-
     }
-
-    /* =========================
-       SUPPORT TEXT
-    ========================= */
 
     .support-text {
-
         font-size: 0.9rem;
-
         margin-bottom: -5px;
-
         line-height: 1.5;
-
     }
-
-    /* =========================
-       DISCORD LINK
-    ========================= */
 
     .discord-link {
-
         font-size: 1rem;
-
-        padding-bottom: 10px;
     }
 
-        /* =========================
-       BUTTONS
-    ========================= */
-
-    .store-button {
-
-        /*
-            MOBILE BUTTON SIZE
-        */
-        font-size: 1.5rem;
-
-        padding: 10px 45px;
-
-        letter-spacing: 2px;
-
-        border-radius: 10px;
-
+    /* Login button - NOT logged in (showing LOGIN) */
+    .login-btn-top:not(.logged-in) {
+        min-width: 75px;
+        width: 50px;
+        height: auto;
+        right: 25px;
+        padding-top: 4px;
+        padding-left: 15px;
+        letter-spacing: 1px;
+        font-size: 1.1rem;
+        background: rgba(25, 10, 45, 0.85);
+        backdrop-filter: blur(8px);
+        white-space: nowrap;
     }
 
-    /* =========================
-       SUPPORT SECTION
-    ========================= */
-
-    .support-section {
-
-        gap: 10px;
-
-        padding-bottom: 5px;
-
+    .login-btn-top {
+        top: 25px;
+        right: 20px;
+        min-width: 55px;
+        height: 22px;
+        font-size: 1.2rem;
+        border-radius: 4px;
     }
 
-    /* =========================
-       SUPPORT TEXT
-    ========================= */
-
-    .support-text {
-
-        font-size: 0.9rem;
-
-        margin-bottom: -5px;
-
-        line-height: 1.5;
-
-    }
-
-    /* =========================
-       DISCORD LINK
-    ========================= */
-
-    .discord-link {
-
-        font-size: 1rem;
-
+    /* Mobile Toast - prevent wrapping */
+    #toast {
+        max-width: 90%;
+        white-space: nowrap;
     }
 }

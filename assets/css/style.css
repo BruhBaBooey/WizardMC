@@ -9,7 +9,6 @@
     user-select: none;
 }
 
-/* Allow text selection in input fields if needed */
 input, textarea {
     -webkit-user-select: auto;
     -moz-user-select: auto;
@@ -22,14 +21,10 @@ input, textarea {
 ========================= */
 
 @font-face {
-
     font-family: 'Minecraft';
-
     src: url('../fonts/Minecraft.ttf') format('truetype');
-
     font-weight: normal;
     font-style: normal;
-
 }
 
 /* =========================
@@ -37,95 +32,35 @@ input, textarea {
 ========================= */
 
 * {
-
     margin: 0;
     padding: 0;
-
     box-sizing: border-box;
-
 }
 
 /* =========================
    PREVENT OVERFLOW
 ========================= */
 
-html,
-body {
-
+html, body {
     overflow-x: hidden;
-
     scroll-behavior: smooth;
-
 }
 
 /* =========================
    GLOBAL VARIABLES
-   CHANGE COLORS HERE
 ========================= */
 
 :root {
-
-    /* =========================
-       MAIN BACKGROUND COLORS
-    ========================= */
-
-    /*
-        MAIN VOID BACKGROUND
-        CHANGE THIS FOR OVERALL SITE COLOR
-    */
     --bg-color: #06010d;
-
-    /*
-        SECONDARY BACKGROUND GLOW
-        USED IN GRADIENTS
-    */
     --bg-secondary: #140320;
-
-    /*
-        CARD BACKGROUND
-        LOWER OPACITY = MORE GLASS EFFECT
-    */
     --card-color: rgba(22, 10, 40, 0.82);
-
-    /* =========================
-       PRIMARY COLORS
-    ========================= */
-
-    /*
-        MAIN PURPLE
-    */
     --primary-color: #9b5cff;
-
-    /*
-        BRIGHT GLOW PURPLE
-    */
     --secondary-color: #c084fc;
-
-    /*
-        COSMIC BLUE ACCENT
-    */
     --accent-blue: #60a5fa;
-
-    /*
-        MAGIC PINK ACCENT
-    */
     --accent-pink: #f472b6;
-
-    /*
-        TEXT COLOR
-    */
     --text-color: #ffffff;
-
-    /*
-        BUTTON HOVER COLOR
-    */
     --hover-color: #7c3aed;
-
-    /*
-        MAX WEBSITE WIDTH
-    */
     --max-width: 1200px;
-
 }
 
 /* =========================
@@ -133,37 +68,16 @@ body {
 ========================= */
 
 body {
-
-    /*
-        CHANGE GLOBAL FONT HERE
-    */
     font-family: 'Minecraft', Arial, sans-serif;
-
-    /*
-        GALACTIC BACKGROUND
-        CHANGE GRADIENT COLORS HERE
-    */
     background:
-    radial-gradient(circle at top, #1b0b2f 0%, transparent 40%),
-    radial-gradient(circle at bottom right, #120224 0%, transparent 30%),
-    linear-gradient(to bottom, var(--bg-secondary), var(--bg-color));
-
+        radial-gradient(circle at top, #1b0b2f 0%, transparent 40%),
+        radial-gradient(circle at bottom right, #120224 0%, transparent 30%),
+        linear-gradient(to bottom, var(--bg-secondary), var(--bg-color));
     color: var(--text-color);
-
     min-height: 100vh;
-
-    /*
-        GLOBAL TEXT SPACING
-    */
     letter-spacing: 3px;
-
     line-height: 1.6;
-
-    /*
-        REQUIRED FOR PAGE BORDER POSITIONING
-    */
     position: relative;
-
     overflow-y: auto;
 }
 
@@ -172,51 +86,28 @@ body {
 ========================= */
 
 body::before {
-
     content: "";
-
     position: fixed;
-
     top: 0;
     left: 0;
-
     width: 100%;
     height: 100%;
-
-    /*
-        CHANGE STAR IMAGE HERE
-    */
     background-image: url('../images/stars.png');
-
     background-size: cover;
-
     background-position: center;
-
     background-repeat: no-repeat;
-
-    /*
-        CHANGE STAR VISIBILITY HERE
-        LOWER = MORE SUBTLE
-    */
     opacity: 0.25;
-
     pointer-events: none;
-
     z-index: -1;
-
 }
-
 
 /* =========================
    GLOBAL LINK RESET
 ========================= */
 
 a {
-
     text-decoration: none;
-
     color: inherit;
-
 }
 
 /* =========================
@@ -224,139 +115,44 @@ a {
 ========================= */
 
 ::selection {
-
     background: var(--primary-color);
-
     color: white;
-
 }
 
 /* =========================
    GLOBAL GLOW UTILITY
-   CAN BE REUSED LATER
 ========================= */
 
 .glow {
-
-    box-shadow:
-    0 0 10px rgba(155, 92, 255, 0.4),
-    0 0 20px rgba(155, 92, 255, 0.3),
-    0 0 40px rgba(155, 92, 255, 0.2);
-
+    box-shadow: 0 0 10px rgba(155, 92, 255, 0.4), 0 0 20px rgba(155, 92, 255, 0.3), 0 0 40px rgba(155, 92, 255, 0.2);
 }
 
 /* =========================
    HIDE SCROLLBAR
 ========================= */
 
-/* CHROME, EDGE, SAFARI */
-
 ::-webkit-scrollbar {
-
     width: 0;
-
     background: transparent;
-
 }
 
-/* FIREFOX */
-
 html {
-
     scrollbar-width: none;
-
 }
 
 /* =========================
    GLOBAL PAGE CONTAINER
-   USED FOR ALL PAGES
 ========================= */
 
 .page-container {
-
     width: 90%;
-
     max-width: var(--max-width);
-
     margin: auto;
-
-    /*
-        MATCH LANDING PAGE HEIGHT
-    */
     min-height: 100vh;
-
-    /*
-        MAKES ALL PAGES ALIGN
-        LIKE LANDING PAGE
-    */
     display: flex;
-
     flex-direction: column;
-
     padding-top: 80px;
     padding-bottom: 80px;
-
-}
-
-/* =========================
-   GLOBAL MOBILE RESPONSIVE
-   APPLIES TO ALL PAGES
-========================= */
-
-@media (max-width: 768px) {
-
-    /* =========================
-       MOBILE BACKGROUND FIXES
-    ========================= */
-
-    body {
-
-        /*
-            PREVENT MOBILE OVERFLOW
-        */
-        overflow-x: hidden;
-
-        /*
-            BETTER MOBILE RENDERING
-        */
-        background-attachment: scroll;
-
-    }
-
-    /* =========================
-       MOBILE STAR BACKGROUND
-    ========================= */
-
-    body::before {
-
-        /*
-            BETTER MOBILE STAR FIT
-        */
-        background-size: cover;
-
-        background-position: center;
-
-    }
-
-    /* =========================
-    GLOBAL MOBILE PAGE LAYOUT
-    ========================= */
-
-    .page-container {
-
-    width: 88%;
-
-    min-height: 100vh;
-
-    display: flex;
-
-    flex-direction: column;
-
-    padding-top: 30px;
-    padding-bottom: 30px;
-
-    }
-
 }
 
 /* =========================
@@ -364,13 +160,13 @@ html {
 ========================= */
 
 .cart-toggle {
-    position: fixed;
-    top: 40px;
-    right: 40px;
-    width: 93px;
-    height: 37px;
-    padding-top: 6px;
-    padding-left: 5px;
+    position: absolute;
+    top: 46px;
+    right: 45px;
+    width: 105px;
+    height: 35px;
+    padding-top: 5px;
+    padding-left: 3px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -378,8 +174,8 @@ html {
     color: white;
     border-radius: 7px;
     font-family: 'Minecraft', Arial, sans-serif;
-    font-size: 1.4rem;
-    letter-spacing: 3px;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
     text-decoration: none;
     backdrop-filter: blur(8px);
     z-index: 5000;
@@ -391,12 +187,71 @@ html {
 .cart-toggle:hover {
     transform: translateX(-4px);
     color: white;
-    text-shadow:
-        0 0 2px rgba(255, 255, 255, 1),
-        0 0 2px rgba(192, 132, 252, 1),
-        0 0 3px rgba(155, 92, 255, 1);
+    text-shadow: 0 0 2px rgba(255, 255, 255, 1), 0 0 2px rgba(192, 132, 252, 1), 0 0 3px rgba(155, 92, 255, 1);
 }
 
+/* =========================
+   LOGIN BUTTON (PRODUCT PAGES)
+========================= */
+
+.login-btn-top {
+    position: absolute;
+    top: 46px;
+    right: 160px;
+    min-width: 80px;
+    height: 35px;
+    padding: 0 12px;
+    padding-top: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(25, 10, 45, 0.85);
+    color: white;
+    border-radius: 7px;
+    font-family: 'Minecraft', Arial, sans-serif;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    backdrop-filter: blur(8px);
+    z-index: 5000;
+    transition: 0.25s ease;
+    cursor: pointer;
+    border: none;
+}
+
+.login-btn-top:hover {
+    transform: translateX(-4px);
+    color: white;
+    text-shadow: 0 0 2px rgba(255, 255, 255, 1), 0 0 2px rgba(192, 132, 252, 1), 0 0 3px rgba(155, 92, 255, 1);
+}
+
+/* Logged in - no background */
+.login-btn-top.logged-in {
+    background: transparent;
+    backdrop-filter: none;
+    width: auto;
+    min-width: 80px;
+    padding: 0 10px;
+    white-space: nowrap;
+}
+
+/* =========================
+   BACK BUTTON
+========================= */
+
+.back-button {
+    position: absolute;
+    top: 46px;
+    left: 45px;
+    color: white;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    z-index: 5000;
+}
+
+.back-button:hover {
+    color: var(--secondary-color);
+    text-shadow: 0 0 5px rgba(192, 132, 252, 0.8);
+}
 
 /* =========================
    SIDEBAR
@@ -632,7 +487,7 @@ html {
 .upi-id {
     color: #ccc;
     font-size: 0.9rem;
-    word-break: break-word;
+    word-break: break-all;
 }
 
 /* =========================
@@ -648,44 +503,6 @@ html {
     color: white;
     font-family: 'Minecraft', Arial, sans-serif;
     cursor: pointer;
-}
-
-/* =========================
-   CHECKOUT OPTIONS
-========================= */
-
-.checkout-options {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    margin-top: 25px;
-    margin-bottom: 20px;
-}
-
-.checkout-option-btn {
-    width: 100%;
-    padding: 16px;
-    border: none;
-    border-radius: 12px;
-    background: linear-gradient(135deg, rgba(155, 92, 255, 0.95), rgba(124, 58, 237, 0.95));
-    color: white;
-    font-family: 'Minecraft', Arial, sans-serif;
-    font-size: 1.1rem;
-    cursor: pointer;
-    transition: 0.25s ease;
-}
-
-.checkout-option-btn:hover {
-    transform: scale(1.02);
-    box-shadow: 0 0 20px rgba(155, 92, 255, 0.4);
-}
-
-.discord-btn {
-    background: linear-gradient(135deg, #5865F2, #4752C4) !important;
-}
-
-.discord-btn:hover {
-    box-shadow: 0 0 20px rgba(88, 101, 242, 0.5) !important;
 }
 
 /* =========================
@@ -715,10 +532,267 @@ html {
 }
 
 /* =========================
-   MOBILE CART BUTTON
+   LOGIN MODAL
+========================= */
+
+.login-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9000;
+}
+
+.login-modal.active {
+    display: flex;
+}
+
+.login-box {
+    width: 90%;
+    max-width: 400px;
+    padding: 30px;
+    border-radius: 20px;
+    background: rgba(20, 10, 35, 0.96);
+    border: 2px solid rgba(192, 132, 252, 0.3);
+    text-align: center;
+}
+
+.login-box h2 {
+    color: white;
+    font-size: 2rem;
+    margin-bottom: 25px;
+    text-shadow: 0 0 10px rgba(155, 92, 255, 0.5);
+}
+
+.login-input {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 12px;
+    border: none;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.08);
+    color: white;
+    font-family: 'Minecraft', Arial, sans-serif;
+    font-size: 1rem;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.login-input::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.login-input:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 0 0 2px rgba(155, 92, 255, 0.5);
+}
+
+/* =========================
+   CUSTOM SELECT (VERSION)
+========================= */
+
+.custom-select {
+    position: relative;
+    width: 100%;
+    margin-bottom: 12px;
+}
+
+.custom-select-trigger {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.08);
+    color: white;
+    font-family: 'Minecraft', Arial, sans-serif;
+    font-size: 1rem;
+    text-align: center;
+    cursor: pointer;
+    box-sizing: border-box;
+    transition: 0.2s ease;
+}
+
+.custom-select-trigger:hover,
+.custom-select.active .custom-select-trigger {
+    background: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 0 0 2px rgba(155, 92, 255, 0.5);
+}
+
+.custom-select-options {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    margin-top: 5px;
+    border-radius: 10px;
+    background: rgba(20, 10, 35, 0.96);
+    overflow: hidden;
+    display: none;
+    z-index: 10;
+}
+
+.custom-select.active .custom-select-options {
+    display: block;
+}
+
+.custom-select-option {
+    padding: 12px 14px;
+    color: rgba(255, 255, 255, 0.6);
+    font-family: 'Minecraft', Arial, sans-serif;
+    font-size: 1rem;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.custom-select-option:first-child {
+    border-radius: 8px 8px 0 0;
+    padding-top: 14px;
+}
+
+.custom-select-option:last-child {
+    border-radius: 0 0 8px 8px;
+    padding-bottom: 14px;
+}
+
+.custom-select-option:hover {
+    background: rgba(155, 92, 255, 0.2);
+    color: white;
+}
+
+.custom-select-option.selected {
+    color: var(--secondary-color);
+    background: rgba(155, 92, 255, 0.15);
+}
+
+.login-submit-btn {
+    width: 100%;
+    padding: 14px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, rgba(155, 92, 255, 0.95), rgba(124, 58, 237, 0.95));
+    color: white;
+    font-family: 'Minecraft', Arial, sans-serif;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.login-submit-btn:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 20px rgba(155, 92, 255, 0.4);
+}
+
+/* =========================
+   LOGOUT MODAL
+========================= */
+
+.logout-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9000;
+}
+
+.logout-modal.active {
+    display: flex;
+}
+
+.logout-box {
+    width: 90%;
+    max-width: 350px;
+    padding: 30px;
+    border-radius: 20px;
+    background: rgba(20, 10, 35, 0.96);
+    border: 2px solid rgba(192, 132, 252, 0.3);
+    text-align: center;
+}
+
+.logout-box h2 {
+    color: white;
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    text-shadow: 0 0 10px rgba(155, 92, 255, 0.5);
+}
+
+.logout-text {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1rem;
+    margin-bottom: 25px;
+}
+
+.logout-buttons {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+}
+
+.logout-confirm-btn {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    color: white;
+    font-family: 'Minecraft', Arial, sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.logout-confirm-btn:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 15px rgba(239, 68, 68, 0.4);
+}
+
+.logout-cancel-btn {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-family: 'Minecraft', Arial, sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.logout-cancel-btn:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+/* =========================
+   MOBILE RESPONSIVE
 ========================= */
 
 @media (max-width: 768px) {
+    body {
+        overflow-x: hidden;
+        background-attachment: scroll;
+    }
+
+    body::before {
+        background-size: cover;
+        background-position: center;
+    }
+
+    .page-container {
+        width: 88%;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+
     .cart-toggle {
         position: absolute;
         top: 25px;
@@ -726,9 +800,44 @@ html {
         width: 60px;
         height: 22px;
         padding-right: 3px;
-        padding-top: 2px;   
+        padding-top: 2px;
         letter-spacing: 1px;
         font-size: 1.1rem;
         border-radius: 4px;
+    }
+
+    /* Login button - NOT logged in (showing LOGIN) */
+    .login-btn-top:not(.logged-in) {
+        min-width: 75px;
+        width: 50px;
+        height: auto;
+        padding-top: 3px;
+        padding-left: 15px;
+        letter-spacing: 1px;
+        font-size: 1.1rem;
+        background: rgba(25, 10, 45, 0.85);
+        backdrop-filter: blur(8px);
+        white-space: nowrap;
+    }
+
+    .login-btn-top {
+        position: absolute;
+        top: 25px;
+        right: 95px;  /* Changed from 80px - gives space from cart button */
+        min-width: 55px;
+        height: 22px;
+        font-size: 1.2rem;
+        border-radius: 4px;
+    }
+
+    .back-button {
+        position: absolute;
+        top: 25px;
+        left: 25px;
+        font-size: 1rem;
+    }
+    #toast {
+        max-width: 90%;
+        white-space: nowrap;
     }
 }

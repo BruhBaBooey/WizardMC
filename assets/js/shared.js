@@ -295,36 +295,6 @@ if (paymentModal) {
 }
 
 /* =========================
-   CART CLOSE EVENTS
-========================= */
-
-// Close cart on Escape key
-document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") {
-        const sidebar = document.getElementById("cartSidebar");
-        
-        if (sidebar && sidebar.classList.contains("active")) {
-            sidebar.classList.remove("active");
-        }
-        if (paymentModal && paymentModal.classList.contains("active")) {
-            paymentModal.classList.remove("active");
-        }
-    }
-});
-
-// Close cart sidebar on outside click
-document.addEventListener("click", (e) => {
-    const sidebar = document.getElementById("cartSidebar");
-    const cartToggle = document.querySelector(".cart-toggle");
-    
-    if (sidebar && sidebar.classList.contains("active")) {
-        if (!sidebar.contains(e.target) && !cartToggle.contains(e.target)) {
-            sidebar.classList.remove("active");
-        }
-    }
-});
-
-/* =========================
    TOAST
 ========================= */
 
@@ -336,3 +306,185 @@ function showToast(message) {
         setTimeout(() => toast.classList.remove("show"), 2500);
     }
 }
+
+/* =========================
+   LOGIN/LOGOUT FUNCTIONS
+========================= */
+
+function showLogin() {
+    const savedLogin = localStorage.getItem("wizardmc_login");
+    
+    if (savedLogin) {
+        const logoutModal = document.getElementById("logoutModal");
+        if (logoutModal) logoutModal.classList.add("active");
+    } else {
+        const loginModal = document.getElementById("loginModal");
+        if (loginModal) loginModal.classList.add("active");
+    }
+}
+
+// Check if logged in on page load
+window.addEventListener("DOMContentLoaded", () => {
+    const savedLogin = localStorage.getItem("wizardmc_login");
+    if (savedLogin) {
+        const loginData = JSON.parse(savedLogin);
+        const loginBtn = document.getElementById("loginBtn");
+        if (loginBtn) {
+            loginBtn.textContent = loginData.ign;
+            loginBtn.classList.add("logged-in");
+        }
+    }
+});
+
+// Handle Logout
+const logoutBtn = document.getElementById("logoutBtn");
+if (logoutBtn) {
+    logoutBtn.addEventListener("click", () => {
+        localStorage.removeItem("wizardmc_login");
+        const loginBtn = document.getElementById("loginBtn");
+        if (loginBtn) {
+            loginBtn.textContent = "LOGIN";
+            loginBtn.classList.remove("logged-in");
+        }
+        const logoutModal = document.getElementById("logoutModal");
+        if (logoutModal) logoutModal.classList.remove("active");
+    });
+}
+
+// Handle Cancel
+const logoutCancelBtn = document.getElementById("logoutCancelBtn");
+if (logoutCancelBtn) {
+    logoutCancelBtn.addEventListener("click", () => {
+        const logoutModal = document.getElementById("logoutModal");
+        if (logoutModal) logoutModal.classList.remove("active");
+    });
+}
+
+// Close logout modal on outside click
+const logoutModal = document.getElementById("logoutModal");
+if (logoutModal) {
+    logoutModal.addEventListener("click", (e) => {
+        if (e.target === logoutModal) logoutModal.classList.remove("active");
+    });
+}
+
+/* =========================
+   CUSTOM DROPDOWN (LOGIN)
+========================= */
+
+function getVersion() {
+    const selected = document.querySelector(".custom-select-option.selected");
+    return selected ? selected.dataset.value : "java";
+}
+
+const customSelect = document.getElementById("versionSelect");
+if (customSelect) {
+    const trigger = customSelect.querySelector(".custom-select-trigger");
+    const options = customSelect.querySelectorAll(".custom-select-option");
+    
+    trigger.addEventListener("click", (e) => {
+        e.stopPropagation();
+        customSelect.classList.toggle("active");
+    });
+    
+    options.forEach(option => {
+        option.addEventListener("click", () => {
+            trigger.textContent = option.textContent;
+            options.forEach(o => o.classList.remove("selected"));
+            option.classList.add("selected");
+            customSelect.classList.remove("active");
+        });
+    });
+    
+    document.addEventListener("click", () => {
+        customSelect.classList.remove("active");
+    });
+}
+
+/* =========================
+   SIGN IN HANDLER
+========================= */
+
+const signinBtn = document.getElementById("signinBtn");
+if (signinBtn) {
+    signinBtn.addEventListener("click", () => {
+        const ignInput = document.getElementById("ignInput");
+        const discordInput = document.getElementById("discordInput");
+        
+        if (!ignInput || !ignInput.value.trim()) {
+            showToast("Enter your MC username!");
+            return;
+        }
+        
+        const loginData = {
+            ign: ignInput.value.trim(),
+            version: getVersion(),
+            discord: discordInput ? discordInput.value.trim() : ""
+        };
+        
+        localStorage.setItem("wizardmc_login", JSON.stringify(loginData));
+        
+        const loginBtn = document.getElementById("loginBtn");
+        if (loginBtn) {
+            loginBtn.textContent = loginData.ign;
+            loginBtn.classList.add("logged-in");
+        }
+        
+        const loginModal = document.getElementById("loginModal");
+        if (loginModal) loginModal.classList.remove("active");
+        
+        showToast(`Welcome, ${loginData.ign}!`);
+    });
+}
+
+/* =========================
+   LOGIN MODAL CLOSE
+========================= */
+
+const loginModal = document.getElementById("loginModal");
+if (loginModal) {
+    loginModal.addEventListener("click", (e) => {
+        if (e.target === loginModal) loginModal.classList.remove("active");
+    });
+}
+
+/* =========================
+   ESCAPE KEY HANDLER
+========================= */
+
+document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+        const sidebar = document.getElementById("cartSidebar");
+        const paymentModal = document.getElementById("paymentModal");
+        const loginModal = document.getElementById("loginModal");
+        const logoutModal = document.getElementById("logoutModal");
+        
+        if (sidebar && sidebar.classList.contains("active")) {
+            sidebar.classList.remove("active");
+        }
+        if (paymentModal && paymentModal.classList.contains("active")) {
+            paymentModal.classList.remove("active");
+        }
+        if (loginModal && loginModal.classList.contains("active")) {
+            loginModal.classList.remove("active");
+        }
+        if (logoutModal && logoutModal.classList.contains("active")) {
+            logoutModal.classList.remove("active");
+        }
+    }
+});
+
+/* =========================
+   CART SIDEBAR CLOSE (OUTSIDE CLICK)
+========================= */
+
+document.addEventListener("click", (e) => {
+    const sidebar = document.getElementById("cartSidebar");
+    const cartToggle = document.querySelector(".cart-toggle");
+    
+    if (sidebar && sidebar.classList.contains("active")) {
+        if (!sidebar.contains(e.target) && !cartToggle.contains(e.target)) {
+            sidebar.classList.remove("active");
+        }
+    }
+});

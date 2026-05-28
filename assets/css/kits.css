@@ -91,7 +91,7 @@ body::after {
 
 .back-button {
     position: absolute;
-    top: 40px;
+    top: 43px;
     left: 40px;
     width: 87px;
     height: 40px;
@@ -104,7 +104,7 @@ body::after {
     background: rgba(25, 10, 45, 0.85);
     color: white;
     border-radius: 7px;
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     letter-spacing: 3px;
     text-decoration: none;
     backdrop-filter: blur(8px);
