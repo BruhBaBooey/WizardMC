@@ -185,7 +185,8 @@ addButtons.forEach((button, index) => {
 ========================= */
 
 plusButtons.forEach((button, index) => {
-    button.addEventListener("click", () => {
+    button.addEventListener("click", (e) => {
+        e.stopPropagation();
         let quantity = Number(quantityTexts[index].textContent);
         quantity++;
         quantityTexts[index].textContent = quantity;
@@ -205,7 +206,8 @@ plusButtons.forEach((button, index) => {
 ========================= */
 
 minusButtons.forEach((button, index) => {
-    button.addEventListener("click", () => {
+    button.addEventListener("click", (e) => {
+        e.stopPropagation();
         let quantity = Number(quantityTexts[index].textContent);
         quantity--;
         
@@ -256,13 +258,28 @@ const upiIdText = document.getElementById("upiIdText");
 ========================= */
 
 function checkout() {
+    // Check if logged in first
+    const savedLogin = localStorage.getItem("wizardmc_login");
+    
+    if (!savedLogin) {
+        showToast("Please log in to continue");
+        const loginModal = document.getElementById("loginModal");
+        if (loginModal) loginModal.classList.add("active");
+        return;
+    }
+    
     if (cart.length <= 0) {
         showToast("Your cart is empty!");
         return;
     }
     
     let total = 0;
-    cart.forEach(item => total += item.total);
+    let itemList = "";
+    
+    cart.forEach(item => {
+        total += item.total;
+        itemList += `${item.quantity}x ${item.name} - ₹${item.total}\n`;
+    });
     
     if (paymentModal) {
         paymentModal.classList.add("active");
@@ -276,6 +293,65 @@ function checkout() {
         const upiLink = `upi://pay?pa=${upiId}&pn=WizardMC&am=${total}&cu=INR&tn=${encodeURIComponent(itemNames)}`;
         upiQrImage.src = `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${encodeURIComponent(upiLink)}`;
     }
+    
+    // Send order to Discord
+    const loginData = JSON.parse(savedLogin);
+    sendOrderToDiscord({
+        ign: loginData.ign,
+        discord: loginData.discord,
+        version: loginData.version,
+        items: itemList,
+        total: total
+    });
+}
+
+/* =========================
+   SEND ORDER TO DISCORD
+========================= */
+
+function sendOrderToDiscord(orderDetails) {
+    const webhookUrl = "YOUR_WEBHOOK_URL_HERE"; // Replace with your Discord webhook URL
+    
+    const embed = {
+        embeds: [{
+            title: "🛒 New Order",
+            color: 0x9b5cff,
+            fields: [
+                {
+                    name: "👤 Minecraft Username",
+                    value: orderDetails.ign,
+                    inline: true
+                },
+                {
+                    name: "📌 Discord",
+                    value: orderDetails.discord || "Not provided",
+                    inline: true
+                },
+                {
+                    name: "🎮 Version",
+                    value: orderDetails.version === "java" ? "Java Edition" : "Bedrock/PE",
+                    inline: true
+                },
+                {
+                    name: "🛍️ Products",
+                    value: orderDetails.items,
+                    inline: false
+                },
+                {
+                    name: "💰 Total",
+                    value: `₹${orderDetails.total}`,
+                    inline: true
+                }
+            ],
+            timestamp: new Date().toISOString()
+        }]
+    };
+    
+    fetch(webhookUrl, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(embed)
+    }).catch(error => console.error("Webhook error:", error));
 }
 
 /* =========================
@@ -335,38 +411,6 @@ window.addEventListener("DOMContentLoaded", () => {
         }
     }
 });
-
-// Handle Logout
-const logoutBtn = document.getElementById("logoutBtn");
-if (logoutBtn) {
-    logoutBtn.addEventListener("click", () => {
-        localStorage.removeItem("wizardmc_login");
-        const loginBtn = document.getElementById("loginBtn");
-        if (loginBtn) {
-            loginBtn.textContent = "LOGIN";
-            loginBtn.classList.remove("logged-in");
-        }
-        const logoutModal = document.getElementById("logoutModal");
-        if (logoutModal) logoutModal.classList.remove("active");
-    });
-}
-
-// Handle Cancel
-const logoutCancelBtn = document.getElementById("logoutCancelBtn");
-if (logoutCancelBtn) {
-    logoutCancelBtn.addEventListener("click", () => {
-        const logoutModal = document.getElementById("logoutModal");
-        if (logoutModal) logoutModal.classList.remove("active");
-    });
-}
-
-// Close logout modal on outside click
-const logoutModal = document.getElementById("logoutModal");
-if (logoutModal) {
-    logoutModal.addEventListener("click", (e) => {
-        if (e.target === logoutModal) logoutModal.classList.remove("active");
-    });
-}
 
 /* =========================
    CUSTOM DROPDOWN (LOGIN)
@@ -434,12 +478,48 @@ if (signinBtn) {
         if (loginModal) loginModal.classList.remove("active");
         
         showToast(`Welcome, ${loginData.ign}!`);
+        
+        // Auto checkout after login if cart has items
+        setTimeout(() => {
+            if (cart.length > 0) {
+                checkout();
+            }
+        }, 250);
     });
 }
 
 /* =========================
-   LOGIN MODAL CLOSE
+   LOGOUT HANDLER
 ========================= */
+
+const logoutBtn = document.getElementById("logoutBtn");
+if (logoutBtn) {
+    logoutBtn.addEventListener("click", () => {
+        localStorage.removeItem("wizardmc_login");
+        const loginBtn = document.getElementById("loginBtn");
+        if (loginBtn) {
+            loginBtn.textContent = "LOGIN";
+            loginBtn.classList.remove("logged-in");
+        }
+        const logoutModal = document.getElementById("logoutModal");
+        if (logoutModal) logoutModal.classList.remove("active");
+    });
+}
+
+const logoutCancelBtn = document.getElementById("logoutCancelBtn");
+if (logoutCancelBtn) {
+    logoutCancelBtn.addEventListener("click", () => {
+        const logoutModal = document.getElementById("logoutModal");
+        if (logoutModal) logoutModal.classList.remove("active");
+    });
+}
+
+const logoutModal = document.getElementById("logoutModal");
+if (logoutModal) {
+    logoutModal.addEventListener("click", (e) => {
+        if (e.target === logoutModal) logoutModal.classList.remove("active");
+    });
+}
 
 const loginModal = document.getElementById("loginModal");
 if (loginModal) {
@@ -470,21 +550,6 @@ document.addEventListener("keydown", (e) => {
         }
         if (logoutModal && logoutModal.classList.contains("active")) {
             logoutModal.classList.remove("active");
-        }
-    }
-});
-
-/* =========================
-   CART SIDEBAR CLOSE (OUTSIDE CLICK)
-========================= */
-
-document.addEventListener("click", (e) => {
-    const sidebar = document.getElementById("cartSidebar");
-    const cartToggle = document.querySelector(".cart-toggle");
-    
-    if (sidebar && sidebar.classList.contains("active")) {
-        if (!sidebar.contains(e.target) && !cartToggle.contains(e.target)) {
-            sidebar.classList.remove("active");
         }
     }
 });
