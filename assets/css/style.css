@@ -728,7 +728,7 @@ html {
     margin-bottom: 25px;
 }
 
-.logout-buttons {
+.l.ogout-buttons {
     display: flex;
     gap: 12px;
     justify-content: center;
@@ -767,6 +767,15 @@ html {
 
 .logout-cancel-btn:hover {
     background: rgba(255, 255, 255, 0.15);
+}
+
+/* Payment buttons */
+.cancel-btn {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.paid-btn {
+    background: linear-gradient(135deg, #22c55e, #16a34a);
 }
 
 /* =========================

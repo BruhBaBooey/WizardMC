@@ -254,7 +254,7 @@ const upiAmount = document.getElementById("upiAmount");
 const upiIdText = document.getElementById("upiIdText");
 
 /* =========================
-   CHECKOUT - DIRECT TO QR
+   CHECKOUT - SHOW QR ONLY
 ========================= */
 
 function checkout() {
@@ -274,12 +274,7 @@ function checkout() {
     }
     
     let total = 0;
-    let itemList = "";
-    
-    cart.forEach(item => {
-        total += item.total;
-        itemList += `${item.quantity}x ${item.name} - ₹${item.total}\n`;
-    });
+    cart.forEach(item => total += item.total);
     
     if (paymentModal) {
         paymentModal.classList.add("active");
@@ -294,15 +289,7 @@ function checkout() {
         upiQrImage.src = `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${encodeURIComponent(upiLink)}`;
     }
     
-    // Send order to Discord
-    const loginData = JSON.parse(savedLogin);
-    sendOrderToDiscord({
-        ign: loginData.ign,
-        discord: loginData.discord,
-        version: loginData.version,
-        items: itemList,
-        total: total
-    });
+    // DO NOT clear cart here! Cart clears only after "I HAVE PAID"
 }
 
 /* =========================
@@ -310,7 +297,7 @@ function checkout() {
 ========================= */
 
 function sendOrderToDiscord(orderDetails) {
-    const webhookUrl = "YOUR_WEBHOOK_URL_HERE"; // Replace with your Discord webhook URL
+    const webhookUrl = "https://discord.com/api/webhooks/1509789348948611144/vIEdhlkiUhBwJ73qh0kAQJ6CFiXUMQ8tBbCX1EHFvpin9_SfalFZoEumJZMPsY0w8P6k";
     
     const embed = {
         embeds: [{
@@ -352,6 +339,50 @@ function sendOrderToDiscord(orderDetails) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(embed)
     }).catch(error => console.error("Webhook error:", error));
+}
+
+/* =========================
+   PAYMENT BUTTONS
+========================= */
+
+function confirmPayment() {
+    if (paymentModal) paymentModal.classList.remove("active");
+    
+    // Send to Discord only after payment confirmation
+    const savedLogin = localStorage.getItem("wizardmc_login");
+    if (savedLogin && cart.length > 0) {
+        let total = 0;
+        let itemList = "";
+        
+        cart.forEach(item => {
+            total += item.total;
+            // Format: [Type] quantityx Name ₹Price
+            let typeLabel = item.type.charAt(0).toUpperCase() + item.type.slice(1);
+            itemList += `[${typeLabel}] ${item.quantity}x ${item.name} ₹${item.total}\n`;
+        });
+        
+        const loginData = JSON.parse(savedLogin);
+        sendOrderToDiscord({
+            ign: loginData.ign,
+            discord: loginData.discord,
+            version: loginData.version,
+            items: itemList,
+            total: total
+        });
+    }
+    
+    // Clear cart after confirming payment
+    cart = [];
+    saveCart();
+    updateCartUI();
+    
+    // Show "Order placed!" toast HERE
+    showToast("Order placed!");
+}
+
+function closePaymentCancel() {
+    if (paymentModal) paymentModal.classList.remove("active");
+    showToast("Cart saved! Complete payment to order.");
 }
 
 /* =========================
